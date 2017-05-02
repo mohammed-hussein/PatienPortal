@@ -1,0 +1,292 @@
+
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+    a {
+        text-decoration:none;
+        text-decoration:none !important;
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .w3-btn {
+        color: #000; 
+        background-color: #FFF;
+    }
+
+    .w3-card-4 {
+        background: rgba(255, 255, 255, 0.96);
+        background-color: rgba(255, 255, 255, 0.96);
+    }
+
+    /*[lang='ar-SA'] .w3-card-4 {
+        background: rgba(255, 255, 255, 0.96);
+        background-color: rgba(255, 255, 255, 0.96);
+        direction: rtl;
+    }*/
+      body {
+        background-image:url('/assets/images/background/Login_background.png');
+        background-size: cover ;
+        background-repeat:no-repeat;
+        background-color:#e4e5e5;
+    }
+
+    [lang='ar'] body {
+        background-image:url('/assets/images/background/Login_background.png');
+        background-size: cover ;
+        background-repeat:no-repeat;
+        background-color:#e4e5e5;
+        direction: rtl !important;
+    }
+
+    .w3-btn:hover {
+    color: #000; 
+    background-color: #FFF;
+    box-shadow:none;
+    }
+
+    .w3-border-bottom {
+    border-bottom: solid 1px #ddd !important;
+    }
+    .w3-blue,.w3-hover-blue:hover {color:#fff!important;background-color:#02b0cf!important}
+    .w3-blue,.w3-hover-blue:hover {color:#fff!important;background-color:#02b0cf!important}
+    .w3-text-blue,.w3-hover-text-blue:hover{color:#02b0cf!important}
+    .w3-light-blue, nav a:hover {color:#fff!important;background-color:#48d5e7!important}
+    .w3-text-light-gray {color:#aaa!important;}
+    .w3-text-dark-blue {color:#0a7ab1!important}
+
+.w3-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 150%;
+}
+
+ /*.w3-tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #222 transparent transparent;
+}*/
+
+.w3-tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #222;
+}
+
+ .w3-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.content-boxes {
+        min-height:500px !important;
+        max-height:600px !important;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+.content-boxes table{
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+.fa fa-angle-right:before, .fa-angle-right:before {content:"\f105" !important;}
+
+.content-boxes table td:hover a div {
+    margin-left: 15px;
+}
+
+.title-td {
+    width: 15%;
+    }
+
+nav a {
+        border-radius: 4px;
+}
+
+span.navText {
+       
+}
+
+/*add these 2 new class to maintain the page content margins when navigation open and close */
+.sidenav-margin-open {margin-left:160px !important; margin-top:63px; padding-top:30px;} /*En*/
+.sidenav-margin-close {margin-left:60px !important; margin-top:63px; padding-top:30px;} /*En*/
+
+.expand   {  width: 156px;}
+.collapse {  width: 56px;}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/** Old Style used **/
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printpage img {
+    visibility: visible;
+  }
+  #printpage, #printpage img:first-child  {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  #printArea * { visibility: visible; }
+  #printArea { position: absolute; top: 40px; left: 30px;  text-align: center !important; direction: ltr !important;}
+}
+
+@media screen {
+  #printArea { display: none; }
+}
+
+/* items class */
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 24em;
+}
+.items li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.items li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.items li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+
+.items li.selected:hover {
+  background-color: #BBD8DC;
+}
+.items .text {
+  position: relative;
+  top: -3px;
+}
+.items .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+nav a.router-link-active {
+  color: #039be5;
+}
+
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa; 
+  cursor: auto;
+}
+
+/* Forms */
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+/*
+body, input[text], button { 
+  color: #888; 
+  font-family: Cambria, Georgia; 
+}*/
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}

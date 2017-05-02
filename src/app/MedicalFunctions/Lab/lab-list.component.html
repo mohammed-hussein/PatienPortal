@@ -1,0 +1,68 @@
+<div class="w3-container w3-text-blue w3-padding w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-margin w3-large"><span><b>{{'LAB.LABELS.Title' | translate}}</b></span></div>
+    <!--<div class="w3-xlarge w3-right w3-margin w3-text-orange"><a><i class="fa fa-plus-circle"></i></a></div>-->
+
+    <!-- Add new item Button
+        <div class="w3-large w3-right w3-margin w3-text-orange w3-tooltip">
+        <a href="#" onclick="document.getElementById('id01').style.display='block'">
+            <i class="flaticon-plus-sign-in-a-black-circle"></i>
+        </a>
+        <span class="tooltiptext w3-small w3-animate-opacity" > Add Feedback</span>
+    </div>-->
+    <div class="w3-clear"></div>
+    <div class="w3-padding-bottom w3-margin-bottom">
+        <app-Loading></app-Loading>
+        <!-- No Data Div -->
+        <div [ngClass]="{'w3-hide': !NoData}" class="w3-container w3-padding-large w3-text-black w3-center w3-col w3-border-gray w3-border  w3-round w3-opacity-min w3-light-gray w3-animate-zoom">
+            <p><i class="fa fa-exclamation-triangle  w3-text-red w3-padding-right w3-large" aria-hidden="true"></i> {{'COMMON.LABELS.NoRecords' | translate}}</p>
+        </div>
+
+        <!-- Data Div -->
+        <table [ngClass]="{'w3-hide': !showData}" class="w3-table w3-text-gray ">
+            <tr *ngFor="let labproc of labProcedure | LabStatus" (click)="onSelect(labproc)">
+                <td [ngClass]="{'w3-amber w3-round w3-text-white': labproc === selectedLab}" class="w3-border-bottom w3-padding-bottom w3-padding-top">
+                    <a>
+                        <div>
+                            <span [ngClass]="labproc === selectedLab? 'w3-text-white' : 'w3-text-blue'">{{'LAB.LABELS.Item' | translate}} {{labproc?.testdate | date:'d MMM y' }}</span>
+                            <br />
+                            <span [ngClass]="labproc === selectedLab? 'w3-text-white' : 'w3-text-gray'">
+                                <!--{{labproc?.testname}}-->
+                                 {{'LAB.COLUMNS.Testname' | translate:{Testname_EN:labproc?.testname, Testname_AR:labproc?.testname_ar } }}
+                                </span>
+                        </div>
+                    </a>
+                </td>
+                <td class="w3-text-orange w3-large"><i class="fa fa-angle-right"></i></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+<!--
+<legend>Patient Lab</legend>
+
+<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Test</th>
+            <th>Date</th>
+            <th>Requestor</th>
+            <th>Status</th>
+            <th>Results</th>
+            <th>Reference Range</th>
+            <th [hidden]='isSubTest'>Sub Tests</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let labproc of labProcedure | LabStatus">
+        <td>{{labproc?.testname}}</td>
+        <td>{{labproc?.testdate}}</td>
+        <td>{{labproc?.requester}}</td>
+        <td>{{labproc?.status}}</td>
+        <td>{{labproc?.result}} {{labproc?.result_unit}}</td>
+        <td>{{labproc?.Referencerange}}</td>
+        <td [hidden]='isSubTest'>
+            <div *ngIf="labproc"><a [hidden]='labproc.testtype != "PanelTest"' [routerLink]="['/Lab', labproc.TestID]">Sub Test</a></div>
+        </td>
+    </tr>
+</table>-->

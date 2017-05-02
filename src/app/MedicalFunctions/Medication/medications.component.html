@@ -1,0 +1,23 @@
+<legend>Patient Medications</legend>
+
+<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Drug Name</th>                                   
+            <th>Frquency</th>
+            <th>Unit</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Dosage</th>
+        </tr>
+    </thead>    
+    <tr *ngFor="let medication of medications">
+        <td>{{medication?.drug_info}}</td>
+        <td>{{medication?.Frq}}</td>
+        <td>{{medication?.unit}}</td>
+        <td>{{medication?.unit_type}}</td>
+        <td>{{medication?.duration}}</td>
+        <td>{{medication?.dosage}}</td>
+    </tr>
+</table>
+

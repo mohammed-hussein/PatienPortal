@@ -1,0 +1,64 @@
+<div class="w3-row-padding w3-margin-bottom">
+
+    <div class="w3-half">
+        <div class="w3-container w3-white w3-text-gray w3-padding-small w3-round-large w3-card-4">
+            <div class="w3-left w3-padding w3-margin  w3-border-gray w3-text-orange "><i class="fa fa-id-card-o w3-xxlarge"></i></div>
+            <div class=" w3-margin w3-text-orange w3-padding">
+                <h3>{{'PROFILE.TITLE' | translate}}</h3>
+            </div>
+            <hr />
+            <app-Loading></app-Loading>
+            <div [ngClass]="{'w3-hide': _LoadingService.isLoading}" class="w3-padding-bottom w3-margin-bottom w3-threequarter">
+
+                <table class=" w3-left w3-padding-left w3-margin-left w3-table w3-text-gray">
+                    <!-- MRN input-->
+                    <tr>
+                        <td class="w3-text-cyan "><label for="MRN">{{'PROFILE.MRN' | translate}}</label></td>
+                        <td><label id="inp_MRN" class=" control-label" name="MRN">{{record.MRN}}</label></td>
+                        <td></td>
+                    </tr>      
+                    <!-- Name input-->
+                    <tr>
+                        <td class="w3-text-cyan "><label for="Name">{{'PROFILE.Name' | translate}}</label></td>
+                        <td><label class=" control-label" name="English_Name">
+                            {{ 'PROFILE.NameColumn' | translate:{English_Name:record.English_Name, Arabic_name:record.Arabic_name} }}
+                            </label></td>
+                    </tr>
+                    <!-- Birthday input-->
+                    <tr>
+                        <td class="w3-text-cyan "><label for="birthday">{{'PROFILE.Birthday' | translate}}</label></td>
+                        <td><label class=" control-label" name="birthday">{{record.birthday}}</label></td>
+                    </tr>
+                    <!-- Gender input-->
+                    <tr>
+                        <td class="w3-text-cyan "><label for="gender">{{'PROFILE.Gender' | translate}}</label></td>
+                        <td><label class=" control-label" name="gender">
+                            <!--{{record.gender}}-->
+                             {{ 'PROFILE.COLUMNS.Gender' | translate:{English_Gender:record.gender, Arabic_Gender:record.gender_ar} }}
+                            </label></td>
+                    </tr>
+                     <!-- Nationality input-->
+                    <tr>
+                        <td class="w3-text-cyan "><label for="nationality">{{'PROFILE.Nationality' | translate}}</label></td>
+                        <td><label class=" control-label" name="nationality">{{record.nationality}}</label></td>
+                    </tr>
+                    <!-- National ID input-->
+                    <tr>
+                        <td class="w3-text-cyan "> <label for="nid">{{'PROFILE.NationalID' | translate}}</label> / <label for="iqama">{{'PROFILE.Iqama' | translate}}</label></td>
+                        <td><label class=" control-label" name="nid">{{record.nid}}</label> <label class=" control-label" name="iqama">{{record.iqama}}</label></td>
+                    </tr>              
+                    <!-- Blood Type input-->
+                    <tr>
+                        <td class="w3-text-cyan "><label for="type">{{'PROFILE.BloodType' | translate}}</label></td>
+                        <td><label class=" control-label" name="type">{{record.type}}</label></td>
+                    </tr>
+                    <!-- Mobile Number input-->
+                    <tr>
+                        <td class="w3-text-cyan "><label for="mobilenumber">{{'PROFILE.MobileNumber' | translate}}</label></td>
+                        <td><label class=" control-label" name="mobilenumber">{{record.mobilenumber}}</label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

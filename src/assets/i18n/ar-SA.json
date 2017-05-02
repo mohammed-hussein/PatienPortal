@@ -1,0 +1,302 @@
+{
+  "COMMON": {
+    "LABELS":{
+      "NoRecords":          "عذرا، لا يوجد بيانات !",
+      "Print":              "طباعة",
+      "Cancel":             "إلغاء",
+      "Save":               "حفظ",
+      "Send":               "ارسال"
+    },
+    "COLUMNS":{}
+  },
+  "HOME": {
+    "TITLE":                "مرحبآ بك فى بوابة المريض بمدينة الملك فهد الطبية",
+    "SELECTLang":           "اللغة"
+  },
+  "LOGIN":{
+    "TITLE":                "تسجيل الدخول",
+    "DESC": "الرجاء ادخال رقم الملف الطبى",
+    "PlaceHolder":          "رقم الملف الطبى",
+    "BUTTON":               "الدخول",
+    "UPDATEMOB":            "ترغب فى تحديث رقم جوالك؟",
+    "COPYRIGHT":            "Patient Portal © 2017, King Fahad Medical City",
+    "Mobile_Update":        "https://www.kfmc.med.sa/AR/Patient/Pages/UpdatePersonalInformation.aspx",
+    "Error":                "الرجاء التأكد من رقم الملف الطبي"
+  },
+  "ACTIVATION": {
+    "TITLE":                "التفعيل",
+    "HEADER":               "لدخول آمن، سوف تصلك رسالة برمز التفعيل",
+    "MOBMESSAGE":           "على رقم جوالك المسجل لدينا",
+    "ACTIVATIONCODE":       "ستنتهي صلاحية رمز التفعيل بعد (5 دقائق) :",
+    "Placeholder":          "رمز التفعيل",
+    "TIME":                 "ثانية",
+    "BUTTON":               "التفعيل",
+    "CODEEXPIRE":           "انتهت صلاحية رمز التفعيل، يرجى",
+    "CODEEXPIRE2":          "مرة أخرى.",
+    "Error":                "عذرا، رمز التفعيل غير صحيح"
+  },
+  "LOGOUT": {
+    "BUTTON":               "خروج"
+  },
+
+  "SESSION":{
+     "LABELS":{
+       "TimedOut":          "تنبيه",
+       "TimedOut_MSG":      "عذرا انتهت الجلسة. الرجاء",
+       "LoginBtn":          "الدخول",
+       "againlbl":          " مرة أخرى",
+       "Session_Timeout":   "! وقت الجلسة الخاصة بك شارف على الانتهاء",
+       "Counter_MSG":       "سيتم تسجيل خروجك فى خلال ",
+       "Complete_Warn":     "Complete (warning)"
+     },
+     "COLUMNS": {
+    }
+  },
+
+  "HEADER": {
+    "LABELS":{
+      "NextAppoint":        "الموعد القادم",
+      "Tellus":             "شاركنا أفكارك واقتراحاتك",      
+      "Thank":              " \"شكرًا\" , لمن تهديها "
+    },
+    "COLUMNS": {
+      "Name":               "{{Arabic_name}}"
+   }
+  },
+
+  "MENU": {
+    "LABELS":{
+      "Profile":            "الملف الشخصي",
+      "Appointments":       "المواعيد",
+      "Medications":        "الأدوية",
+      "AllMedications":     "جميع الأدوية",
+      "Refill_Req":         "طلبات إعادة الصرف",
+      "Diagnosis":          "التشخيصات",
+      "LabTests":           "التحاليل الطبية",
+      "Radiology":          "الأشعة",
+      "Rid_Appointments":   "المواعيد",
+      "Rid_Reports":        "التقارير",
+      "Reports":            "التقارير",
+      "Sick_Leave":         "الإجازات المرضية",
+      "Watcher_Leave":      "إجازة مرافقة",
+      "Discharge_Summery":  "ملخص الخروج",
+      "Medical_Report":     "التقارير الطبية",
+      "TellUs":             "أخبرنا",
+      "Lang":               "اللغة",
+      "Lang_EN":            "English",
+      "Lang_AR":            "العربية"
+    },
+    "COLUMNS": {
+    }
+  },
+
+  "PROFILE": {
+    "TITLE":                "الملف الشخصي",
+    "Name":                 "الاسم",
+    "NameColumn":           "{{Arabic_name}}",
+    "NationalID":           "رقم الهوية",
+    "Iqama":                "الإقامة",
+    "MRN":                  "رقم الملف الطبى",
+    "Birthday":             "تاريخ الميلاد",
+    "Gender":               "الجنس",
+    "BloodType":            "فصيلة الدم",
+    "Nationality":          "الجنسية",
+    "MobileNumber":         "الجوال",
+    "COLUMNS":{
+      "Gender":             "{{Arabic_Gender}}"
+    }
+  },
+  "APPOINTMENTS": {
+    "LABELS":{
+      "Title":              "المواعيد",
+      "Item":               "",
+      "Date":               "التاريخ",
+      "Clinic":             "العيادة",
+      "Time":               "الوقت",
+      "Type":               "النوع",
+      "Doctor":             "الطبيب",
+      "Status":             "الحالة",
+      "Building":           "المبنى",
+      "Floor":              "الطابق",
+      "NOTES":              "ملاحظات"
+    },
+    "COLUMNS":{
+      "STATUS":             "{{STATUS_AR}}",
+      "CLINIC":             "{{CLINIC_AR}}",
+      "APP_TYPE":           "{{APP_TYPE_AR}}",
+      "RESOURCE":           "{{RESOURCE_AR}}"
+    }
+  },
+  "Diagnosis": {
+    "LABELS":{
+      "Title":              "التشخيصات",
+      "Item":               "",
+      "Doctor":             "الطبيب",
+      "Diagnosis":          "التشخيص"
+    },
+    "COLUMNS":{
+      "Doctor":             "{{Doctor_AR}}"
+    }
+  },
+  "LAB":{
+    "LABELS":{
+      "Title":              "التحاليل الطبية",
+      "Item":               "",
+      "RequestedOn":        "تاريخ الطلب",
+      "RequestedBy":        "الطلب بواسطة: ",
+      "Levels":             "المستوى: ",
+      "Level_H":            " مرتفع ",
+      "Level_N":            "طبيعي",
+      "Level_L":            "منخفض",
+      "Details":            "التفاصيل: ",
+      "Name":               "التحليل",
+      "Result":             "النتيجة",
+      "Range":              "المعدل الطبيعي"
+    },
+    "COLUMNS":{
+      "Testname":           "{{Testname_EN}}",
+      "Requester":          "{{requester_AR}}"
+    }
+  },
+  "MEDICATION":{
+    "LABELS":{
+      "Title":              "الأدوية",
+      "Item":               "",
+      "DrugName":           "اسم الدواء",
+      "Frquency":           "التكرار",
+      "Unit":               "الوحدة",
+      "Type":               "النوع",
+      "Duration":           "المدة",
+      "Dosage":             "الجرعة",
+      "Requester":          "بطلب من",
+      "Requester_type":     "نوع الطلب",
+      "Instruction":        "تعليمات"
+    },
+    "COLUMNS":{
+      "DrugInfo":           "{{drug_info_EN}}",
+      "Requester":          "{{Requester_AR}}",
+      "Instruction":        "{{Instruction_AR}}"
+    }
+  },
+  "REFILL":{
+    "LABELS":{
+      "Title":              "طلبات إعادة الصرف",
+      "AddRefill":          "طلب إعادة صرف الدواء",
+      "Item":               "الطلب رقم ",
+      "RequestDate":        "تاريخ الطلب",
+      "RequestStatus":      "حالة الطلب",
+      "Reason":             "السبب",
+      "KFMCResponse":       "التعليق",
+      "ReceivingMethod":    "طريقة الاستلام",
+      "ReceivingDate":      "تاريخ الاستلام",
+      "Hospital":           "المستشفى",
+      "Comments":           "الملاحظات",
+      "NewTitle":           "طلب إعادة صرف الدواء",
+      "MRN":                "رقم الملف الطبى",
+      "RefillDesc":         "يمكنك طلب اعادة صرف الدواء و سيكون جاهز للاستلام أو التوصيل من خلال البريد الدوائي في حال لم تكن من سكان الرياض !",
+      "ReqDetails":         "تفاصيل الطلب",
+      "Mob_Req":            "الرجاء ادخال رقم الجوال",
+      "OtherMob_Req":       "الرجاء ادخال رقم جوال آخر", 
+      "ChooseCity":         "اختر المدينة",
+      "Notes":              "ملاحظات :",
+      "Note_RecMethod":     "استلام الدواء من الاحد الى الخميس من كل اسبوع من الساعة 3 عصرا الى 6 مساء",
+      "Note_RecDate":       "فى حالة التاخير عن استلام الدواء اكثر من 48 ساعة يرجى ادخال طلب جديد",
+      "ReceivingDate_Req":  "الرجاء ادخال تاريخ الاستلام",
+      "Cancel":             "إلغاء",
+      "Send":               "ارسال",
+      "Sys_Err":            "<strong>عذرا !</strong> الرجاء المحاولة لاحقا, {{errorMsg}}.",
+      "Sys_Success":        "<strong>نشكرك !</strong> تم إرسال طلبك بنجاح، الرجاء التأكد من موافقة الصيدلية على طلبك من خلال البوابة أو التطبيق, وفي حال الموافقة يرجى التوجه لصيدلية الدور الأرضي بمبنى العيادات الخارجية - شباك رقم 9 لاستلام أدويتك ",
+      "DHL":                "البريد الدوائي",
+      "Pharmacy":           "الصيدلية",
+      "PH_Mobile":          "رقم الجوال",
+      "PH_OtherMobile":     "رقم الجوال الأخر",
+      "PH_Receiving_Date":  "تاريخ الأستلام",
+      "PH_Patient_Comment": "الملاحظات"
+    },
+    "COLUMNS":{
+      "City_Name":          "{{CityName_AR}}",
+      "Patient_Name":       "{{PatientArabicName}}"
+    }
+  },
+  "RADIOLOGY":{
+    "LABELS":{
+      "Title":              "الأشعة",
+      "Item":               "",
+      "Date":               "التاريخ",
+      "Location":           "الموقع",
+      "Requestor":          "بطلب من",
+      "Status":             "الحالة",
+      "Prepration":         "التحضير",
+      "Name":               "الاسم"
+    },
+    "COLUMNS":{
+      "Requester":          "{{Requester_AR}}",
+      "ProcName":           "{{ProcName_EN}}",
+      "Prepration":         "{{Prepration_AR}}"
+    }
+  },
+  "RADIOLOGY_Reports":{
+    "LABELS":{
+      "Title":              "تقارير الأشعة",
+      "Item":               "",
+      "Date":               "التاريخ",
+      "ReportType":         "نوع التقرير",
+      "Report":             "التقرير",
+      "DeliveryDate":       "تاريخ الاستلام"
+    },
+    "COLUMNS":{
+    }
+  },
+  "Reports":{
+    "LABELS":{
+      "Title":              "تقرير {{reportHeader}}",
+      "Report_Sick":        "الإجازات المرضية",
+      "Report_Discharge":   "ملخص الخروج",
+      "Report_Watcher":     "إجازات المرافقة",
+      "Footer":             "(هذه الوثيقة المصدرة تلقائيا تمثل نظرة عامة عن حالة المريض)"
+      },
+    "COLUMNS":{
+    }
+  },
+   "ROI":{
+     "LABELS":{
+       "Title":              "التقارير الطبية"
+     },
+    "COLUMNS":{
+    }
+  } ,
+  "TELLUS":{
+    "LABELS":{
+      "Title":              "أخبرنا",
+      "Add_Feedback":       "أخبرنا",
+      "Item":               "الحالة رقم ",
+      "Case":               "الحالة رقم ",
+      "Reported_On":        "التاريخ",
+      "Status":             "الحالة",
+      "Type":               "النوع",
+      "Location":           "الموقع",
+      "Floor":              "الطابق",
+      "Feedback":           "نوع الطلب",
+      "KFMC_Reply":         "التعليق",
+      "New_Feedback":       "أخبرنا",
+      "Feedback_Desc":      "برضاك تسمو خدماتنا، ورأيك محل اهتمامنا‫.‬ أخبرنا كيف نقدم خدمة أفضل !",
+      "Details":            "تفاصيل الحالة",
+      "Type_Idea":          "اقتراح",
+      "Type_Question":      "استفسار",
+      "Type_Complement":    "إطراء",
+      "Type_Complain":      "شكوى",
+      "Choose_Location":    "اختر المبنى",
+      "Choose_Floor":       "اختر الطابق",
+      "Enter_FeedBack":     " الرسالة ",
+      "Success":            "<strong>نشكرك !</strong> تمت الاضافة بنجاح .",
+      "Fail":               "<strong>عذرا !</strong> الرجاء المحاولة لاحقا !",
+      "Feedback_Title":     "العنوان",
+      "PH_Title":           "أخبرنا",
+      "PH_Mobile":          "رقم الجوال",
+      "PH_Feedback":        "الطلب"
+    },
+    "COLUMNS":{
+      "Patient_Name":       "{{PatientArabicName}}"
+    }
+  }
+}

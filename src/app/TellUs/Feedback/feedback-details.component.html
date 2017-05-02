@@ -1,0 +1,47 @@
+<div class="w3-container w3-text-gray w3-padding-small w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-padding w3-margin w3-border w3-border-gray w3-circle w3-text-light-gray"><i class="flaticon-tool-1 w3-xxlarge"></i></div>
+    <div class=" w3-margin w3-text-orange">
+        <h5>{{'TELLUS.LABELS.Case' | translate}} {{feedback?.RefNo}}</h5>
+    </div>
+    <hr />
+    <!--<div class="w3-right w3-padding-right w3-margin-right w3-small w3-text-blue">
+        <a href="#"><i class="fa fa-print w3-medium"></i> Print</a> &nbsp;&nbsp; <a href="#"><i class="fa fa-trash-o  w3-medium"></i> Cancel</a>
+    </div>-->
+    <div class="w3-padding-bottom w3-margin-bottom">
+
+        <table class=" w3-left w3-padding-left w3-margin-left w3-text-gray  w3-table ">
+            <tr>
+                <td class="w3-text-cyan title-td">{{'TELLUS.LABELS.Reported_On' | translate}}</td>
+                <td>{{feedback?.Created_Date | date:'d MMM y'}}</td>
+            </tr>            
+            <tr>
+                <td class="w3-text-cyan title-td">{{'TELLUS.LABELS.Type' | translate}}</td>
+                <td>{{feedback?.Feedback_Type}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'TELLUS.LABELS.Feedback_Title' | translate}}</td>
+                <td>{{feedback?.Feedback_Title}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'TELLUS.LABELS.Location' | translate}}</td>
+                <td>{{feedback?.Location}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'TELLUS.LABELS.Floor' | translate}}</td>
+                <td>{{feedback?.Floor}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'TELLUS.LABELS.Feedback' | translate}}</td>
+                <td>{{feedback?.Feedback}}</td>
+            </tr>                   
+            <tr>
+                <td class="w3-text-cyan title-td">{{'TELLUS.LABELS.Status' | translate}}</td>
+                <td>{{feedback?.Status}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-orange title-td">{{'TELLUS.LABELS.KFMC_Reply' | translate}}</td>
+                <td>{{feedback?.Comment}}</td>
+            </tr>   
+        </table>
+    </div>
+</div>

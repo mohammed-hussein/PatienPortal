@@ -1,0 +1,47 @@
+<div class="w3-container w3-text-gray w3-padding-small w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-padding w3-margin w3-border w3-border-gray w3-circle w3-text-light-gray">
+        <i class="flaticon-research w3-xxlarge"></i>
+    </div>
+    <div class=" w3-margin">
+        <h5>{{'LAB.COLUMNS.Testname' | translate:{Testname_EN:labproc?.testname, Testname_AR:labproc?.testname_ar } }}<br />{{'LAB.LABELS.RequestedOn' | translate}}  {{labproc?.testdate | date:'d MMM y'}}</h5>
+    </div>
+    <hr />
+
+    <div class="w3-padding w3-margin">
+
+        <div class="w3-left w3-text-black"><span>
+            {{'LAB.LABELS.RequestedBy' | translate}} {{'LAB.COLUMNS.Requester' | translate:{requester_EN:labproc?.requester, requester_AR:labproc?.requester_ar } }}
+            </span></div>
+        <div class="w3-right w3-small">{{'LAB.LABELS.Levels' | translate}} 
+            <span class="w3-text-red w3-padding-left"><i class="fa fa-caret-up w3-text-red w3-large"></i>{{'LAB.LABELS.Level_H' | translate}} </span>
+            <span class="w3-text-light-green w3-padding-left"><i class="fa fa-minus w3-small"></i> {{'LAB.LABELS.Level_N' | translate}} </span>
+            <span class="w3-text-orange w3-padding-left"><i class="fa fa-caret-down w3-text-orange w3-large"></i> {{'LAB.LABELS.Level_L' | translate}}</span>
+        </div>
+        <div class="w3-margin-top w3-col w3-text-blue"><span><h5>{{'LAB.LABELS.Details' | translate}}</h5></span></div>
+
+        <table [ngClass]="{'w3-hide': !showData}" class=" w3-left w3-table w3-text-gray w3-margin-top">
+            <tr class="w3-border-bottom w3-text-black">
+                <td>{{'LAB.LABELS.Name' | translate}}</td>
+                <td>{{'LAB.LABELS.Result' | translate}}</td>
+                <td>{{'LAB.LABELS.Range' | translate}}</td>
+            </tr>
+            <tr *ngFor="let lab of LabProcedures | LabStatus">
+                <td><i [ngClass]="{ 'fa-minus w3-text-light-green' : lab?.DEVIATION === 'N', 
+                                    'fa-caret-down w3-text-orange' : lab?.DEVIATION === 'L', 
+                                    'fa-caret-up w3-text-red ' : lab?.DEVIATION === 'H' }" 
+                class="fa w3-xxlarge w3-padding-right"></i><span class="w3-text-cyan">
+                    <!--{{lab?.testname}}-->
+                    {{'LAB.COLUMNS.Testname' | translate:{Testname_EN:lab?.testname, Testname_AR:lab?.testname_ar } }}
+                    </span>
+                    <td>
+                        {{lab?.result}} ({{lab?.result_unit}} )
+                    </td>
+                    <td>{{lab?.Referencerange}}</td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        <div [ngClass]="{'w3-hide': showData}" class=" w3-left w3-table w3-text-gray w3-margin-top">{{error}}</div>
+    </div>
+</div>

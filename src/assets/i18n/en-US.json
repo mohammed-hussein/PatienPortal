@@ -1,0 +1,302 @@
+{
+  "COMMON": {
+    "LABELS":{
+      "NoRecords":          "No Records Found!",
+      "Print":              "Print",
+      "Cancel":             "Cancel",
+      "Save":               "Save",
+      "Send":               "Send"
+    },
+    "COLUMNS":{}
+  },
+  "HOME": {
+  "TITLE":                  "Welcome to KFMC Online Patient Portal !",
+    "SELECTLang":           "Language"
+  },
+  "LOGIN": {
+    "TITLE":                "Patient Portal Login",
+    "DESC":                 "Enter Your Medical Record Number",
+    "PlaceHolder":          "MRN",
+    "BUTTON":               "Login",
+    "UPDATEMOB":            "Need To Update Your Mobile Number ?",
+    "COPYRIGHT":            "Patient Portal © 2017, King Fahad Medical City",
+    "Mobile_Update":        "https://www.kfmc.med.sa/EN/Patient/Pages/UpdatePersonalInformation.aspx",
+    "Error":                "MRN is Invalid"
+  },
+  "ACTIVATION": {
+    "TITLE":                "Activation Code",
+    "HEADER":               "Please Enter the Verification Code,",
+    "MOBMESSAGE":           "sent to your Mobile",
+    "ACTIVATIONCODE":       "Activation Code will expire after (5 Minutes) :",
+    "Placeholder":          "Activation Code",
+    "TIME":                 "Seconds",
+    "BUTTON":               "Activate",
+    "CODEEXPIRE":           "Activation Code expired, please",
+    "CODEEXPIRE2":          "again.",
+    "Error":                "Activation Code is Invalid"
+  },
+
+  "LOGOUT": {
+    "BUTTON":               "Logout"
+  },
+
+  "SESSION":{
+     "LABELS":{
+       "TimedOut":          "You've Timed Out!",
+       "TimedOut_MSG":      "Sorry your session time out. You will be logged out, please",
+       "LoginBtn":          "Login",
+       "againlbl":          " again.",
+       "Session_Timeout":   "Session about timeout !",
+       "Counter_MSG":       "You'll be logged out in",
+       "Complete_Warn":     "Complete (warning)"
+     },
+     "COLUMNS": {
+    }
+  },
+  
+  "HEADER": {
+    "LABELS":{
+      "NextAppoint":        "Next Appointment",
+      "Tellus":             "<span>Tell Us Your</span><br /><span>Suggestions</span>",      
+      "Thank":              "<span>Thank</span><br /><span>Someone</span>"
+    },
+    "COLUMNS": {
+      "Name":               "{{English_Name}}"
+    }
+  },
+  "MENU": {
+    "LABELS":{
+      "Profile":            "Profile",
+      "Appointments":       "Appointments",
+      "Medications":        "Medications",
+      "AllMedications":     "All Medications",
+      "Refill_Req":         "Refill Requests",
+      "Diagnosis":          "Diagnosis",
+      "LabTests":           "Lab Tests",
+      "Radiology":          "Radiology",
+      "Rid_Appointments":   "Appointments",
+      "Rid_Reports":        "Reports",
+      "Reports":            "Reports",
+      "Sick_Leave":         "Sick leave",
+      "Watcher_Leave":      "Watcher leave",
+      "Discharge_Summery":  "Discharge Summary",
+      "Medical_Report":     "Medical Report",
+      "TellUs":             "Tell Us",
+      "Lang":               "Lang",
+      "Lang_EN":            "English",
+      "Lang_AR":            "العربية"
+    },
+    "COLUMNS": {
+    }
+  },
+
+  "PROFILE": {
+    "TITLE":                "My Profile",
+    "Name":                 "Name",
+    "NameColumn":           "{{English_Name}}",
+    "NationalID":           "National ID",
+    "Iqama":                "Iqama",
+    "MRN":                  "MRN",
+    "Birthday":             "Birthday",
+    "Gender":               "Gender",
+    "BloodType":            "Blood Type",
+    "Nationality":            "Nationality",
+    "MobileNumber":         "Mobile Number",
+    "COLUMNS": {
+      "Gender":             "{{English_Gender}}"
+    }
+  },
+  "APPOINTMENTS": {
+    "LABELS":{
+      "Title":              "Appointments",
+      "Item":               "",
+      "Date":               "Date",
+      "Clinic":             "Clinic",
+      "Time":               "Time",
+      "Type":               "Type",
+      "Doctor":             "Doctor",
+      "Status":             "Status",
+      "Building":           "Building",
+      "Floor":              "Floor",
+      "NOTES":              "Notes"
+    },
+    "COLUMNS":{
+      "STATUS":             "{{STATUS_EN}}",
+      "CLINIC":             "{{CLINIC_EN}}",
+      "APP_TYPE":           "{{APP_TYPE_EN}}",
+      "RESOURCE":           "{{RESOURCE_EN}}"
+    }
+  },
+  "Diagnosis": {
+    "LABELS":{
+      "Title":              "Diagnosis",
+      "Item":               "",
+      "Doctor":             "Doctor",
+      "Diagnosis":          "Diagnosis"
+    },
+    "COLUMNS":{
+      "Doctor":             "{{Doctor_EN}}"
+    }
+  },
+  "LAB":{
+    "LABELS":{
+      "Title":              "Lab Tests",
+      "Item":               "",
+      "RequestedOn":        "Requested on ",
+      "RequestedBy":        "Requested By Dr. ",
+      "Levels":              "Levels: ",
+      "Level_H":            " High",
+      "Level_N":            "Normal",
+      "Level_L":            "Low",
+      "Details":            "Test Details: ",
+      "Name":               "Test",
+      "Result":             "Result",
+      "Range":              "Range"
+    },
+    "COLUMNS":{
+      "Testname":           "{{Testname_EN}}",
+      "Requester":          "{{requester_EN}}"
+    }
+  },
+  "MEDICATION":{
+    "LABELS":{
+      "Title":              "Medications",
+      "Item":               "",
+      "DrugName":           "Drug Name",
+      "Frquency":           "Frequency",
+      "Unit":               "unit",
+      "Type":               "Type",
+      "Duration":           "Duration",
+      "Dosage":             "Dosage",
+      "Requester":          "Requested by",
+      "Requester_type":     "Requester Type",
+      "Instruction":        "Instruction"
+    },
+    "COLUMNS":{
+      "DrugInfo":           "{{drug_info_EN}}",
+      "Requester":          "{{Requester_EN}}",
+      "Instruction":        "{{Instruction_EN}}"
+    }
+  },
+  "REFILL":{
+    "LABELS":{
+      "Title":              "Refill Requests",
+      "AddRefill":          "Add Refill Request",
+      "Item":               "Request # ",
+      "RequestDate":        "Request Date",
+      "RequestStatus":      "Request Status",
+      "Reason":             "Reason",
+      "KFMCResponse":       "KFMC Response",
+      "ReceivingMethod":    "Receiving Method",
+      "ReceivingDate":      "Receiving Date",
+      "Hospital":           "Hospital",
+      "Comments":           "Comments",
+      "NewTitle":           "New Medication Refill",
+      "MRN":                "Medical Record Number: ",
+      "RefillDesc":         "You can request for medication refill and it will be ready for you to pick-up or ship if you are outside Riyadh !",
+      "ReqDetails":         "Request Details",
+      "Mob_Req":            "mobile is required",
+      "OtherMob_Req":       "Other Mobile is required", 
+      "ChooseCity":         "Choose your City",
+      "Notes":              "Notes:",
+      "Note_RecMethod":     "Receiving medicine start Sunday and end up Thursday every week, from 3:00 PM till 6 PM",
+      "Note_RecDate":       "in case you are delayed to receive medicine 48 hours, you should add new request",
+      "ReceivingDate_Req":  "Receiving Date is required",
+      "Cancel":             "Cancel",
+      "Send":               "Send",
+      "Sys_Err":            "<strong>Error!</strong> System Error, {{errorMsg}}.",
+      "Sys_Success":        "<strong>Success!</strong> Refill Request submitted successfully.",
+      "DHL":                "DHL",
+      "Pharmacy":           "Pharmacy",
+      "PH_Mobile":          "Your Mobile",
+      "PH_OtherMobile":     "Other Mobile",
+      "PH_Receiving_Date":  "Receiving Date",
+      "PH_Patient_Comment": "Patient Comment"
+    },
+    "COLUMNS":{
+      "City_Name":          "{{CityName_EN}}",
+      "Patient_Name":          "{{PatientEnglishName}}"
+    }
+  },
+  "RADIOLOGY":{
+    "LABELS":{
+      "Title":              "Radiologies",
+      "Item":               "",
+      "Date":               "Date",
+      "Location":           "Location",
+      "Requestor":          "Requestor",
+      "Status":             "Status",
+      "Prepration":         "Prepration",
+      "Name":               "Name"
+    },
+    "COLUMNS":{
+      "Requester":          "{{Requester_EN}}",
+      "ProcName":           "{{ProcName_EN}}",
+      "Prepration":         "{{Prepration_EN}}"
+    }
+  },
+  "RADIOLOGY_Reports":{
+    "LABELS":{
+      "Title":              "Radiology Reports",
+      "Item":               "",
+      "Date":               "Date",
+      "ReportType":         "Report Type",
+      "Report":             "Report",
+      "DeliveryDate":       "Delivery Date"
+    },
+    "COLUMNS":{
+    }
+  },
+  "Reports":{
+    "LABELS":{
+      "Title":              "{{reportHeader}}",
+      "Report_Sick":        "Sick Leave",
+      "Report_Discharge":   "Discharge Summery",
+      "Report_Watcher":     "Watcher Leave",
+      "Footer":             "(This document is an auto generated overview of the condition)"
+      },
+    "COLUMNS":{
+    }
+  },
+   "ROI":{
+     "LABELS":{
+       "Title":             "Medical Reports"
+     },
+    "COLUMNS":{
+    }
+  },
+  "TELLUS":{
+    "LABELS":{
+      "Title":              "Tell Us",
+      "Add_Feedback":       "Add Feedback",
+      "Item":               "Feedback # ",
+      "Case":               "Case  # ",
+      "Reported_On":        "Reported On",
+      "Status":             "Status",
+      "Type":               "Type",
+      "Location":           "Location",
+      "Floor":              "Floor",
+      "Feedback":           "Feedback",
+      "KFMC_Reply":         "KFMC Reply",
+      "New_Feedback":       "New Feedback",
+      "Feedback_Desc":      "Your feedback matters and your satisfaction raises our services. Tell us how to provide you with a better service !",
+      "Details":            "FeedBack Details",
+      "Type_Idea":          "Idea",
+      "Type_Question":      "Question",
+      "Type_Complement":    "Complement",
+      "Type_Complain":      "Complain",
+      "Choose_Location":    "Choose the Location",
+      "Choose_Floor":       "Choose the Floor",
+      "Enter_FeedBack":     " Enter Your FeedBack ",
+      "Success":            "<strong>Success!</strong>Feedback submitted successfully.",
+      "Fail":               "<strong>Error!</strong>System Error, Please try again later!.",
+      "Feedback_Title":     "Feedback Title",
+      "PH_Title":           "FeedBack Title",
+      "PH_Mobile":          "Your Mobile",
+      "PH_Feedback":        "Feedback"
+    },
+    "COLUMNS":{
+      "Patient_Name":       "{{PatientEnglishName}}"
+    }
+  }
+}

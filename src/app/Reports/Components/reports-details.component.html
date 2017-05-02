@@ -1,0 +1,17 @@
+<div class="w3-container w3-text-black w3-padding-small w3-round-large w3-card-4 content-boxes ">
+    <!-- Report header -->
+    <div class=" w3-padding w3-small w3-white">
+        <div class="w3-clear">
+            <img src="design/images/MedicalReportHeader.png" width="100%" /></div>
+        <!-- Report content -->
+        <div class="w3-padding-large w3-small " [innerHTML]="reportContent">
+        </div>
+    </div>
+    <!-- Report footer -->
+    <div class="w3-tiny w3-border-top w3-center w3-padding-large"><b>{{'Reports.LABELS.Footer' | translate}}</b></div>
+</div>
+
+<!--
+<legend>Reports</legend>
+
+<div [innerHTML]="reportContent"></div>-->

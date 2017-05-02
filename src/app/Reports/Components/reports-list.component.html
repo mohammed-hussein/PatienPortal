@@ -1,0 +1,30 @@
+<div class="w3-container w3-text-blue w3-padding w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-margin w3-large"><span><b [innerHTML]="'Reports.LABELS.Title' | translate: {reportHeader: reportHeader}"></b></span></div>
+    <div class="w3-clear"></div>
+    <div class="w3-padding-bottom w3-margin-bottom">
+
+       <!-- No Data Div -->
+        <div [ngClass]="{'w3-hide': showData}" class="w3-container w3-padding-large w3-text-black w3-center w3-col w3-border-gray w3-border  w3-round w3-opacity-min w3-light-gray w3-animate-zoom">
+            <p><i class="fa fa-exclamation-triangle  w3-text-red w3-padding-right w3-large" aria-hidden="true"></i> {{'COMMON.LABELS.NoRecords' | translate}} </p>
+        </div>
+
+       <!-- Data Div -->
+        <app-Loading></app-Loading>
+        <!--<table [ngClass]="{'w3-hide': _LoadingService.isLoading}" class="w3-table w3-text-gray ">-->
+            <table [ngClass]="{'w3-hide': !showData}" class="w3-table w3-text-gray ">
+            <tr *ngFor="let report of reports" (click)="onSelect(report)">
+                <td [ngClass]="{'w3-amber w3-round w3-text-white': report === selectedReport}" class="w3-border-bottom w3-padding-bottom w3-padding-top">
+                    <a>
+                        <div>
+                            <span [ngClass]="report === selectedReport? 'w3-text-white' : 'w3-text-blue'">{{report.ReportName}}</span>
+                            <br />
+                            <span [ngClass]="report === selectedReport? 'w3-text-white' : 'w3-text-gray'"></span>
+                        </div>
+                    </a>
+                </td>
+                <td class="w3-text-orange w3-large"><i class="fa fa-angle-right"></i></td>
+            </tr>
+        </table>
+
+    </div>
+</div>

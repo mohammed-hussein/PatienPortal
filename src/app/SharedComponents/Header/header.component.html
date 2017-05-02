@@ -1,0 +1,52 @@
+<!-- Squares -->
+<div class="w3-row-padding w3-margin-bottom w3-animate-opacity" [style.display]="isAuthenticated ? 'block' : 'none'">
+    <!-- 1 -->
+    <div class="w3-quarter">
+        <div class="w3-container w3-text-gray w3-round-large w3-card-4">
+            <div class="w3-left w3-margin w3-text-light-gray"><i class="flaticon-user w3-xxlarge"></i></div>
+            <div class=" w3-margin">
+                <span class="w3-text-orange"><b>
+                     {{ 'HEADER.COLUMNS.Name' | translate:{English_Name:record?.English_Name, Arabic_name:record?.Arabic_name} }}
+                    </b></span> <br /><span>{{MRN}}</span>
+            </div>
+        </div>
+    </div>
+    <!-- 2 -->
+    <div class="w3-quarter w3-hide-small w3-hide-medium">
+        <div class="w3-container w3-text-gray w3-round-large w3-card-4">
+            <div class="w3-left w3-light-green w3-margin w3-round-large w3-text-white"><i class="flaticon2 flaticon2-calendar-1 w3-xxlarge w3-padding-small"></i></div>
+            <div class="w3-margin">
+                <span class="w3-text-light-green"><b>{{ appointment?.APPODATE }}</b></span><br /><span>{{ 'HEADER.LABELS.NextAppoint' | translate}}</span>
+            </div>
+        </div>
+    </div>
+    <!-- 3 -->
+    <div class="w3-quarter w3-hide-small w3-hide-medium">
+        <a (click)="openAdd('Idea')" style="text-decoration:none;">
+<div class="w3-container w3-round-large w3-card-4">
+    <div class="w3-left w3-orange w3-margin w3-round-large w3-text-white"><i class="flaticon-smile w3-xxlarge w3-padding-small"></i></div>
+    <div class="w3-text-orange w3-margin w3-xxlarge w3-right w3-opacity"><i class="fa fa-angle-right"></i></div>
+
+    <div class="w3-margin" [innerHTML]="'HEADER.LABELS.Tellus' | translate">
+    </div>
+
+</div>
+</a>
+</div>
+<!-- 4 -->
+<div class="w3-quarter w3-hide-small w3-hide-medium">
+    <a (click)="openAdd('Complement')" style="text-decoration:none;">
+<div class="w3-container  w3-round-large w3-card-4">
+    <div class="w3-left w3-cyan w3-margin w3-round-large w3-text-white"><i class="flaticon-ribbon w3-xxlarge w3-padding-small"></i></div>
+    <div class="w3-text-cyan w3-margin w3-xxlarge w3-right w3-opacity"><i class="fa fa-angle-right"></i></div>
+
+    <div class="w3-margin" [innerHTML]="'HEADER.LABELS.Thank' | translate">
+        <!--<span>Thank</span><br /><span>Someone</span>-->
+    </div>
+
+</div>
+</a>
+</div>
+
+<!--</div>
+<feedback-add ></feedback-add>-->

@@ -1,0 +1,69 @@
+<!-- Modal that pops up when you click on "Add Button" -->
+<div id="id_Addfeedback" class="w3-modal" style="z-index:4">
+<div class="w3-modal-content w3-animate-zoom w3-round-large w3-padding-large w3-card-4 w3-white">
+    <div class="w3-container  w3-border-bottom w3-text-gray ">
+        <span (click)="onClose()" class="w3-right w3-xlarge w3-closebtn w3-padding-top"><i class="fa fa-remove"></i></span>
+        <div class="w3-left w3-cyan w3-round-large w3-margin-top w3-margin-right w3-text-white"><i class="fa fa-star-o w3-xlarge w3-padding-small"></i></div>
+        <h2>{{'TELLUS.LABELS.New_Feedback' | translate}}</h2>
+    </div>
+    <div class="w3-panel">
+        <div [style.display]="!isSaved ? 'block' : 'none'" class="">
+            <form class="form-horizontal" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+                <p class="w3-text-orange w3-large">
+                    <!--<b>{{feedback.name}}</b>-->
+                    <b>{{'TELLUS.COLUMNS.Patient_Name' | translate:{PatientEnglishName:feedback.name, PatientArabicName:feedback.Arabic_name } }}</b>
+                </p>
+                <p class="w3-text-gray">
+                    {{'TELLUS.LABELS.Feedback_Desc' | translate}}
+                </p>
+                <p class="w3-text-cyan">{{'TELLUS.LABELS.Details' | translate}}</p>
+                <div class="w3-left w3-padding-right">
+                    <input class="w3-small" type="radio" name="Type" value="Idea" [(ngModel)]="feedback.Feedback_Type"> {{'TELLUS.LABELS.Type_Idea' | translate}}
+                    <input class="w3-small" type="radio" name="Type" value="Question" [(ngModel)]="feedback.Feedback_Type"> {{'TELLUS.LABELS.Type_Question' | translate}}
+                    <input class="w3-small" type="radio" name="Type" value="Complement" [(ngModel)]="feedback.Feedback_Type"> {{'TELLUS.LABELS.Type_Complement' | translate}}
+                    <input class="w3-small" type="radio" name="Type" value="Complian" [(ngModel)]="feedback.Feedback_Type"> {{'TELLUS.LABELS.Type_Complain' | translate}}
+                </div>
+                <br/>
+                <br/>
+                <input class="w3-input w3-margin-bottom" type="number" placeholder="{{'TELLUS.LABELS.PH_Mobile' | translate}}" [(ngModel)]="feedback.mobile" name="Mobile">
+                <input class="w3-input w3-margin-bottom" type="text" placeholder="{{'TELLUS.LABELS.PH_Title' | translate}}" [(ngModel)]="feedback.Feedback_Title" name="feedback_Title"
+                    required>
+                <div class="w3-clear">
+                    <!-- Buildings -->
+                    <select class="w3-select w3-half w3-border-bottom w3-margin-bottom" name="option" placeholder="Location" (change)="onSelectBuilding($event.target.value)"
+                        [(ngModel)]="feedback.Location" required>
+                <option value="" disabled [selected]="!feedback.Location" >{{'TELLUS.LABELS.Choose_Location' | translate}}</option>
+                <option *ngFor="let building of Buildings"  [value]="building">{{building}}</option>
+            </select>
+                    <!-- Floors-->
+                    <select class="w3-select w3-half w3-border-bottom w3-margin-bottom" name="option" placeholder="Floor" (change)="onSelectFloor($event.target.value)"
+                        [(ngModel)]="feedback.Floor" required>>
+                <option value="" disabled [selected]="!feedback.Floor">{{'TELLUS.LABELS.Choose_Floor' | translate}}</option>
+                <option *ngFor="let floor of Floors" [value]="floor">{{floor}}</option>
+            </select>
+                </div>
+                <p class="w3-text-cyan"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{'TELLUS.LABELS.Enter_FeedBack' | translate}}</p>
+                <textarea class="w3-input w3-margin-bottom w3-border" style="height:150px" placeholder="{{'TELLUS.LABELS.PH_Feedback' | translate}}" name="Feedback" [(ngModel)]="feedback.Feedback" multiple required>
+</textarea>
+<div class="w3-section">
+    <a class="w3-btn w3-right w3-red w3-text-white w3-margin-left" (click)="onClose()">{{'COMMON.LABELS.Cancel' | translate}}<i class="fa fa-paper-times"></i></a>
+    <button class="w3-btn w3-right w3-cyan w3-text-white w3-margin-left" type="button" (click)="onSubmit()" [disabled]="!heroForm.form.valid">{{'COMMON.LABELS.Send' | translate}}<i class="fa fa-paper-plane"></i></button>
+</div>
+</form>
+</div>
+<div [style.display]="isSaved ? 'block' : 'none'">
+    <br>
+    <div class="form-group row">
+        <div class="col-md-8">
+            <div ID="Lit_Success" [style.display]="isSaved ? 'block' : 'none'" class="alert alert-success" [innerHTML]="'TELLUS.LABELS.Success' | translate">
+            </div>
+            <div ID="Lit_Fail" [style.display]="!isSaved ? 'block' : 'none'" class="alert alert-danger" [innerHTML]="'TELLUS.LABELS.Fail' | translate">
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+</div>
+</div>
+</div>

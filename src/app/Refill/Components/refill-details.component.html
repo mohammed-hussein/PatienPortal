@@ -1,0 +1,49 @@
+<div class="w3-container w3-text-gray w3-padding-small w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-padding w3-margin w3-border w3-border-gray w3-circle w3-text-light-gray">
+        <i class="flaticon-drugs w3-xxlarge"></i>
+    </div>
+    <div class=" w3-margin">
+        <h5>{{'REFILL.LABELS.Item' | translate}} {{request?.ID}}<br />{{request?.requestStatus}}</h5>
+    </div>
+    <hr />
+    <!--<div class="w3-right w3-padding-right w3-margin-right w3-small w3-text-blue">
+        <a href="#"><i class="fa fa-print w3-medium"></i> Print</a> &nbsp;&nbsp; <a href="#"><i class="fa fa-trash-o  w3-medium"></i> Cancel</a>
+    </div>-->
+    <div class="w3-padding-bottom w3-margin-bottom">
+
+        <table class=" w3-left w3-padding-left w3-margin-left w3-table w3-text-gray ">
+            <tr>
+                <td class="w3-text-cyan title-td">{{'REFILL.LABELS.RequestDate' | translate}}</td>
+                <td>{{request?.created | date:'d MMM y'}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'REFILL.LABELS.RequestStatus' | translate}}</td>
+                <td>{{request?.requestStatus}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'REFILL.LABELS.Reason' | translate}}</td>
+                <td>{{request?.rejectionReason}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-orange title-td">{{'REFILL.LABELS.KFMCResponse' | translate}}</td>
+                <td>{{request?.staffComment}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'REFILL.LABELS.ReceivingMethod' | translate}}</td>
+                <td>{{request?.receivingMethod}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'REFILL.LABELS.ReceivingDate' | translate}}</td>
+                <td>{{request?.receivingDate | date:'d MMM y'}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'REFILL.LABELS.Hospital' | translate}}</td>
+                <td>{{request?.hospitalName}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-orange title-td">{{'REFILL.LABELS.Comments' | translate}}</td>
+                <td>{{request?.patientComment}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

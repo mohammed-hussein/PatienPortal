@@ -1,0 +1,154 @@
+<div [style.display]="!isSaved ? 'block' : 'none'" > <!-- [hidden]="isSaved" -->
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #refillForm="ngForm">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Add Refill Request</legend>
+
+            <!-- Text input-->
+            <!--
+        <div class="form-group row">
+            <label class="col-md-2 control-label" for="drugName">Drug Name</label>
+            <div class="col-md-4">
+                <input  id="inp_drugName" type="text" placeholder="Drug Name" class="form-control input-md"
+                 [(ngModel)]="refillRequest.drugName" name="drugName">
+            </div>
+        </div>
+        -->
+
+            <!-- Select Basic -->
+            <div class="form-group row">
+                <label class="col-md-2 control-label" for="Receiving Method">ReceivingMethod</label>
+                <div class="col-md-4">
+                    <select id="ddl_receivingMethod" class="form-control" (change)="Setvalue()" [(ngModel)]="refillRequest.receivingMethod" name="receivingMethod"
+                        required>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="DHL">DHL</option>
+                </select>
+                </div>
+            </div>
+             <div *ngIf="!refillRequest.IsPharmcy" >
+                <!-- Mobile input-->
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="mobile">mobile</label>
+                    <div class="col-md-4">
+                        <input id="inp_mobile" type="text" placeholder="mobile" class="form-control input-md" [(ngModel)]="refillRequest.mobile"
+                            name="mobile" [required]="!refillRequest.IsPharmcy" #mobile="ngModel">
+                        <div [style.display]="!mobile.valid || !mobile.pristine ? 'block' : 'none'" class="alert alert-danger">
+                            mobile is required
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Mobile input-->
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="Other Mobile">Other Mobile</label>
+                    <div class="col-md-4">
+                        <input id="inp_otherMobile" type="text" placeholder="Other Mobile" class="form-control input-md" [(ngModel)]="refillRequest.otherMobile"
+                            name="OtherMobile" [required]="!refillRequest.IsPharmcy" #otherMobile="ngModel">
+                        <div [style.display]="!otherMobile.valid || !otherMobile.pristine ? 'block' : 'none'" class="alert alert-danger">
+                            Other Mobile is required
+                        </div>
+                    </div>
+                </div>
+
+                <!-- City Basic -->
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="City">City</label>
+                    <div class="col-md-4">
+                        <select class="form-control" id="ddl_city" name="city" [(ngModel)]="refillRequest.city" name="city" [required]="!refillRequest.IsPharmcy">
+                    <option *ngFor="let city of cities"  [value]="city.NameEN">{{city.NameEnAr}}</option>
+                </select>
+                    </div>
+                </div>
+            </div>
+
+             <div *ngIf="refillRequest.IsPharmcy" >
+                asdasdasdasdasd
+                <!-- Calender input-->
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="calender">Receiving Date</label>
+                    <div class="col-md-4">
+                        <input id="inp_date" type="date" placeholder="Receiving Date" class="form-control input-md" (change)="disableWeekends($event, rdate)"
+                            [(min)]="minDate" [(ngModel)]="refillRequest.receivingDate" name="receivingDate" #receivingDate="ngModel"
+                            #rdate [required]="refillRequest.IsPharmcy">
+                        <div [style.display]="(!receivingDate.valid || !receivingDate.pristine || !isValidDate) ? 'block' : 'none'"  class="alert alert-danger">
+                            Receiving Date is required
+                        </div>
+                        <div [style.display]="!isValidDate ? 'block' : 'none'" class="alert alert-danger">
+                            Can't select Weekend, please select a working day <br> Or date after 7 days from Today.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <span class="col-md-2 control-label" ></span>
+                    <div class="col-md-4">
+                    <div class="alert alert-info" role="alert">
+                        <strong>Notes:</strong>
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-check-square"></i>Receiving medicine start Sunday and end up Thursday  every week, from 3:00 PM till 6 PM</li>
+                            <li><i class="fa-li fa fa-check-square"></i>in case you are delayed to receive medicine 48 hours, you should add new request</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Textarea -->
+            <div class="form-group row">
+                <label class="col-md-2 control-label" for="Patient Comment">Patient Comment</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="txt_patientComment" placeholder="Patient Comment" [(ngModel)]="refillRequest.patientComment"
+                        name="patientComment">
+                </textarea>
+                </div>
+            </div>
+
+            <!-- type="text" -->
+            <!--
+        <div class="form-group row">
+            <label class="col-md-2 control-label" for="Hospital Name">Hospital Name</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" id="ipt_hospitalName" placeholder="Hospital Name"
+                        [(ngModel)]="refillRequest.hospitalName" name="hospitalName" required >                
+            </div>
+        </div>
+        -->
+
+            <!-- Button (Double) -->
+            <div class="form-group row">
+                <label class="col-md-2 control-label" for="btn_Save"></label>
+                <div class="col-md-8">
+                    <button type="button" (click)="onSubmit()" class="btn btn-default" [disabled]="!refillForm.form.valid">Submit</button>
+                    <button type="button" class="btn btn-cancel">Cancel</button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2 control-label" for="btn_Save"></label>
+                <div class="col-md-8">
+                    {{diagnostic}}
+                    <div ID="Lit_Fail" [style.display]="isError ? 'block' : 'none'" class="alert alert-danger">
+                        <strong>Error!</strong> System Error, {{errorMsg}}.
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div [style.display]="isSaved ? 'block' : 'none'" >
+    <div class="form-group row">
+        <div class="col-md-8">
+            {{diagnostic}}
+        </div>
+    </div>
+    <br>
+    <div class="form-group row">
+        <div class="col-md-2">
+            <button class="btn btn-default" (click)="isSaved=false">Edit</button>
+        </div>
+        <div class="col-md-4">
+            <div ID="Lit_Success" visible="false" class="alert alert-success">
+                <strong>Success!</strong> Refill Request submitted successfully.
+            </div>
+        </div>
+    </div>
+</div>

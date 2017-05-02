@@ -1,0 +1,26 @@
+<div class="w3-container w3-text-blue w3-padding w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-margin w3-large"><span><b>{{'ROI.LABELS.Title' | translate}}</b></span></div>
+
+
+    <div class="w3-clear"></div>
+    <div class="w3-padding-bottom w3-margin-bottom">
+
+        <!-- Data Div -->
+        <app-Loading></app-Loading>
+        <table [ngClass]="{'w3-hide': _LoadingService.isLoading}" class="w3-table w3-text-gray ">
+            <tr *ngFor="let file of filesInfo" (click)="onSelect(file)">
+                <td [ngClass]="{'w3-amber w3-round w3-text-white': file === selectedFile}" class="w3-border-bottom w3-padding-bottom w3-padding-top">
+                    <a [routerLink]="['/ROIDetails', file.FileId]">
+                        <div>
+                            <span [ngClass]="file === selectedFile? 'w3-text-white' : 'w3-text-blue'">{{file.OriginalFileName}}</span>
+                            <br />
+                            <span [ngClass]="file === selectedFile? 'w3-text-white' : 'w3-text-gray'"></span>
+                        </div>
+                    </a>
+                </td>
+                <td class="w3-text-orange w3-large"><i class="fa fa-angle-right"></i></td>
+            </tr>
+        </table>
+
+    </div>
+</div>

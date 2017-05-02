@@ -1,0 +1,87 @@
+/*Ar CSS*/
+
+[lang='ar-SA'] .w3-card-4 {
+        background: rgba(255, 255, 255, 0.96);
+        background-color: rgba(255, 255, 255, 0.96);
+        direction: rtl;
+    }
+
+[lang='ar-SA'] .bodyclss, [lang='ar-SA'] .w3-col, [lang='ar-SA'] .w3-half, [lang='ar-SA'] .w3-third, [lang='ar-SA'] .w3-twothird, [lang='ar-SA'] .w3-threequarter, [lang='ar-SA'] .w3-quarter{
+       float:right;
+       direction: rtl !important;
+       text-align:right;
+}
+[lang='ar-SA'] .w3-table, [lang='ar-SA']  .w3-table td {
+       direction: rtl!important;
+       text-align:right;
+}
+
+[lang='ar-SA'] .w3-left{float:right!important; direction: rtl!important; }
+[lang='ar-SA'] .w3-right{ float:left!important; direction: rtl!important; }
+[lang='ar-SA'].w3-padding-left{padding-right:16px!important;}.w3-padding-right{padding-left:16px!important;}
+[lang='ar-SA'].w3-margin-left{margin-right:16px!important;}.w3-margin-right{margin-left:16px!important;}
+
+[lang='ar-SA'] .w3-animate-left{position:relative;-webkit-animation:animateright 0.4s;animation:animateright 0.4s}
+[lang='ar-SA'] .w3-animate-right{position:relative;-webkit-animation:animateleft 0.4s;animation:animateleft 0.4s}
+
+
+
+/*add these 2 new class to maintain the page content margins when navigation open and close */
+[lang='ar-SA'] .sidenav-margin-open {margin-top:63px ; padding-top:30px; margin-right:160px !important; margin-left:5px !important;}    
+[lang='ar-SA'] .sidenav-margin-close {margin-top:63px; padding-top:30px; margin-right:60px !important; margin-left:5px !important;}
+
+[lang='ar-SA'] .expand {    width: 156px;}
+[lang='ar-SA'] .collapse {  width: 56px;}
+
+    [lang='ar-SA'] .fa fa-angle-right:before, [lang='ar-SA'] .fa-angle-right:before {content:"\f104" !important;}
+
+   [lang='ar-SA']  .content-boxes table td:hover a div {
+    margin-right : 15px !important;
+    }
+[lang='ar-SA'] .w3-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color:#222;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -3px;
+    left: 150%;
+    right: -700%;
+}
+
+
+[lang='ar-SA'] .w3-tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #222 transparent transparent;
+}
+
+[lang='ar-SA'] .w3-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+[lang='ar-SA']  div#printArea table.w3-left.w3-table {
+direction: ltr!important;
+}
+
+[lang='ar-SA']  div#printArea table td {
+direction: ltr!important;
+text-align: left!important;
+}
+
+[lang='ar-SA']  div#printArea td.w3-right-align{
+text-align: right!important;
+}
+
+[lang='ar-SA']  div#printArea td.w3-center{
+text-align: center!important;
+}

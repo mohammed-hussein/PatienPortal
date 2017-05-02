@@ -1,0 +1,15 @@
+<legend>Patient Diagnosis</legend>
+
+<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Doctor</th>                                   
+            <th>Diagnosis</th>
+        </tr>
+    </thead>    
+    <tr *ngFor="let diagnos of diagnosis">
+        <td>{{diagnos?.Doctor}}</td>
+        <td>{{diagnos?.ICD_Desc}}</td>                    
+    </tr>
+</table>
+

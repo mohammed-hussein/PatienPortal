@@ -1,0 +1,17 @@
+<!--<a (click)='signOut()' [hidden]= '!isAuthenticated'>Sign Out</a>-->
+<!--<a class="w3-padding-small w3-large w3-right w3-hover-text-blue" (click)='signOut()' [style.display]="isAuthenticated ? 'block' : 'none'">
+    <i class="fa fa-sign-out"></i>
+    <span class="w3-medium"> 
+    {{'LOGOUT.BUTTON' | translate}}
+  </span>
+</a>-->
+<!--[hidden]= '!isAuthenticated'-->
+
+<a routerLinkActive="w3-light-blue" [ngClass]="{'w3-padding w3-medium w3-right w3-hover-text-blue w3-hide-small w3-hide-medium' : !isAnimate, 'w3-padding-large w3-large w3-hide-large': isAnimate}"
+    (click)='signOut()' [style.display]="isAuthenticated ? 'block' : 'none'">
+    <i class="fa fa-sign-out"></i>
+    <span class="" [ngClass]="{'navText w3-hide w3-small w3-animate-left' : isAnimate, 'w3-medium': !isAnimate}"> 
+    {{'LOGOUT.BUTTON' | translate}}
+    <!--<logout></logout>-->
+  </span>
+</a>

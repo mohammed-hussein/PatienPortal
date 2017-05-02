@@ -1,0 +1,40 @@
+<div class="w3-container w3-text-blue w3-padding w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-margin w3-large"><span><b>{{'RADIOLOGY_Reports.LABELS.Title' | translate}}</b></span></div>
+    <!--<div class="w3-xlarge w3-right w3-margin w3-text-orange"><a><i class="fa fa-plus-circle"></i></a></div>-->
+
+    <!-- Add new item Button
+        <div class="w3-large w3-right w3-margin w3-text-orange w3-tooltip">
+        <a href="#" onclick="document.getElementById('id01').style.display='block'">
+            <i class="flaticon-plus-sign-in-a-black-circle"></i>
+        </a>
+        <span class="tooltiptext w3-small w3-animate-opacity" > Add Feedback</span>
+    </div>-->
+    <div class="w3-clear"></div>
+    <div class="w3-padding-bottom w3-margin-bottom">
+        <!-- No Data Div -->
+        <div [ngClass]="{'w3-hide': showData}" class="w3-container w3-padding-large w3-text-black w3-center w3-col w3-border-gray w3-border  w3-round w3-opacity-min w3-light-gray w3-animate-zoom">
+            <p><i class="fa fa-exclamation-triangle  w3-text-red w3-padding-right w3-large" aria-hidden="true"></i>{{'COMMON.LABELS.NoRecords' | translate}}</p>
+        </div>
+
+        <!-- Data Div -->
+        <app-Loading></app-Loading>
+        <table [ngClass]="{'w3-hide': !showData}" class="w3-table w3-text-gray ">
+            <tr *ngFor="let RadiologyReport of RadiologyReports" (click)="onSelect(RadiologyReport)">
+                <td [ngClass]="{'w3-amber w3-round w3-text-white': RadiologyReport === selectedRadiologyReport}" class="w3-border-bottom w3-padding-bottom w3-padding-top">
+                    <a>
+                        <div>
+                            <span [ngClass]="RadiologyReport === selectedRadiologyReport? 'w3-text-white' : 'w3-text-blue'">{{'RADIOLOGY_Reports.LABELS.Item' | translate}} {{RadiologyReport?.Report_type}}  </span>
+                            <br />
+                            <span [ngClass]="RadiologyReport === selectedRadiologyReport? 'w3-text-white' : 'w3-text-gray'">{{RadiologyReport?.Procedure_name}}</span>
+                            <br />
+                            <span [ngClass]="RadiologyReport === selectedRadiologyReport? 'w3-text-white' : 'w3-text-gray'">{{RadiologyReport?.Delivery_date | date:'d MMM y'}}</span>
+                        </div>
+                    </a>
+                </td>
+                <td class="w3-text-orange w3-large"><i class="fa fa-angle-right"></i></td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>

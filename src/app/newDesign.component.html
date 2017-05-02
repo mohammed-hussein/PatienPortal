@@ -1,0 +1,38 @@
+<!-- Top container -->
+<div lang="{{lang}}">
+    <div class="w3-container w3-top w3-white w3-large w3-padding w3-card-4" style="z-index:4;">
+        <span class="w3-hide-small w3-hide-medium"><img src="/assets/images/kfmc_logo.png" height="49px" width="auto"/></span>
+        <span class="w3-hide-large"><img src="/assets/images/kfmc_logo.png" height="45px" width="auto"/></span>
+        <button class="w3-btn w3-right w3-hide-large w3-padding-meduim w3-hover-text-blue " onclick="w3_open();">
+<i class="fa fa-bars w3-padding-right w3-padding-left"></i>
+</button>
+        <div class="w3-padding w3-right">
+            <span class="w3-padding w3-medium w3-hide-small w3-hide-medium"><i class="fa fa-bookmark-o"></i>&nbsp; {{ 'HOME.TITLE' | translate }}</span>
+            <!--Welcome to KFMC Online Patient Portal !-->
+            <!--<a href="#" class="w3-padding w3-medium w3-right w3-hide-small w3-hide-medium w3-hover-text-blue"><i class="fa fa-sign-out"></i> Logout</a>-->
+            <logout></logout>
+            <div class="w3-padding w3-right w3-medium w3-hide-small w3-hide-medium">
+                <a (click)="changeLanguage('ar-SA')" [style.display]="lang==='ar-SA' ? 'none' : 'block'" class="w3-hover-text-blue">العربية</a>
+                <a (click)="changeLanguage('en-US')" [style.display]="lang==='en-US' ? 'none' : 'block'" class="w3-hover-text-blue">English</a>
+            </div>
+            <!--<div class="w3-dropdown-hover w3-right w3-medium w3-hide-small w3-hide-medium w3-hover-text-blue">
+        <button class="w3-btn "><i class="fa fa-language"></i> {{'HOME.SELECTLang' | translate}}</button>
+        <div class="w3-dropdown-content">
+            <a (click)="changeLanguage('ar-SA')" class="w3-hover-text-white">العربية</a>
+            <a (click)="changeLanguage('en-US')" class="w3-hover-text-white">English</a>
+        </div>
+    </div>-->
+        </div>
+    </div>
+
+    <!-- Sidenav/menu -->
+    <app-menu>Menu</app-menu>
+
+    <!-- PAGE CONTENT -->
+    <div id="main" class="w3-main sidenav-margin-close">
+        <!-- 1st row -->
+        <app-header> </app-header>
+        <!-- 2nd row -->
+        <router-outlet></router-outlet>
+    </div>
+</div>

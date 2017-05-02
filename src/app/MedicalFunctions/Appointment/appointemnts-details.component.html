@@ -1,0 +1,132 @@
+<div class="w3-container w3-text-gray w3-padding-small w3-round-large w3-card-4 content-boxes">
+    <div class="w3-left w3-padding w3-margin w3-border w3-border-gray w3-circle w3-text-light-gray">
+        <i class="flaticon-interface w3-xxlarge"></i>
+    </div>
+    <div class=" w3-margin">
+        <h5>{{appointment?.APPODATE}}<br />{{'APPOINTMENTS.COLUMNS.CLINIC' | translate:{CLINIC_EN:appointment?.CLINIC, CLINIC_AR:appointment?.CLINIC_AR } }}</h5>
+    </div>
+    <hr />
+    <div class="w3-right w3-padding-right w3-margin-right w3-small w3-text-blue">
+        <a (click)="printAppointment()"><i class="fa fa-print w3-medium"></i> {{'COMMON.LABELS.Print' | translate}}</a> &nbsp;&nbsp;
+        <a (click)="cancelAppointment()"><i class="fa fa-trash-o  w3-medium"></i> {{'COMMON.LABELS.Cancel' | translate}}</a></div>
+    <div class="w3-padding-bottom w3-margin-bottom">
+
+        <table class=" w3-left w3-padding-left w3-margin-left w3-table w3-text-gray ">
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.Date' | translate}}</td>
+                <td>{{appointment?.APPODATE}} </td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.Time' | translate}}</td>
+                <td>{{appointment?.STARTTIME}}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.Type' | translate}}</td>
+                <td>{{'APPOINTMENTS.COLUMNS.APP_TYPE' | translate:{APP_TYPE_EN:appointment?.APP_TYPE, APP_TYPE_AR:appointment?.APP_TYPE_AR
+                    } }}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-orange title-td">{{'APPOINTMENTS.LABELS.Status' | translate}}</td>
+                <td>{{'APPOINTMENTS.COLUMNS.STATUS' | translate:{STATUS_EN:appointment?.STATUS, STATUS_AR:appointment?.STATUS_AR
+                    } }}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.Doctor' | translate}}</td>
+                <td>{{'APPOINTMENTS.COLUMNS.RESOURCE' | translate:{RESOURCE_EN:appointment?.RESOURCE, RESOURCE_AR:appointment?.RESOURCE_AR
+                    } }}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.Clinic' | translate}}</td>
+                <td>{{'APPOINTMENTS.COLUMNS.CLINIC' | translate:{CLINIC_EN:appointment?.CLINIC, CLINIC_AR:appointment?.CLINIC_AR
+                    } }}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.Building' | translate}}</td>
+                <td>{{ appointment?.Building }}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.Floor' | translate}}</td>
+                <td>{{ appointment?.Floor }}</td>
+            </tr>
+            <tr>
+                <td class="w3-text-cyan title-td">{{'APPOINTMENTS.LABELS.NOTES' | translate}}</td>
+                <td>{{ appointment?.NOTES }}</td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- print dialog-->
+<div id="printArea" class="w3-serif content-boxes" >
+<table class="w3-left w3-table">
+    <tr>
+        <td></td>
+        <td style="text-decoration:underline;"><b>Appointment Slip</b></td>
+<td class="w3-right-align" style="text-decoration:underline;"><b>تذكرة موعد</b></td>
+<td></td>
+</tr>
+<tr>
+    <td><b>Patient Name :</b></td>
+    <td>{{EnglishName}}</td>
+    <td class="w3-right-align">{{Arabic_Name}}</td>
+    <td class="w3-right-align"><b>: اسم المريض</b></td>
+</tr>
+<tr>
+    <td><b>MRN :</b></td>
+    <td>{{MRN}}</td>
+    <td class="w3-right-align">{{MRN}}</td>
+    <td class="w3-right-align"><b>: رقم الملف الطبي</b></td>
+</tr>
+<tr>
+    <td><b>Clinic :</b></td>
+    <td>{{appointment?.CLINIC}}</td>
+    <td class="w3-right-align">{{appointment?.CLINIC_AR}}</td>
+    <td class="w3-right-align"><b>: العيادة</b></td>
+</tr>
+<tr>
+    <td><b>Physician :</b></td>
+    <td>{{appointment?.RESOURCE}}</td>
+    <td class="w3-right-align">{{appointment?.RESOURCE_AR}}</td>
+    <td class="w3-right-align"><b>: الطبيب المعالج</b></td>
+</tr>
+<tr>
+    <td><b>Appt Type :</b></td>
+    <td>{{appointment?.APP_TYPE}}</td>
+    <td class="w3-right-align">{{appointment?.APP_TYPE_AR}}</td>
+    <td class="w3-right-align"><b>: نوع الموعد</b></td>
+</tr>
+<tr>
+    <td><b>Appt Date :</b></td>
+    <td>{{appointment?.APPODATE}}</td>
+    <td class="w3-right-align">{{appointment?.APPODATE}}</td>
+    <td class="w3-right-align"><b>: تاريخ الموعد</b></td>
+</tr>
+<tr>
+    <td><b>Appt Time :</b></td>
+    <td>{{appointment?.STARTTIME}}</td>
+    <td class="w3-right-align">{{appointment?.STARTTIME}}</td>
+    <td class="w3-right-align"><b>: وقت الموعد</b></td>
+</tr>
+<tr>
+    <td><b>Appt Instructions :</b></td>
+    <td>{{appointment?.NOTES}}</td>
+    <td>{{appointment?.NOTES}}</td>
+    <td class="w3-right-align"><b>: تعليمات</b></td>
+</tr>
+<tr>
+    <td class="w3-right-align" colspan="4" style="text-decoration:underline;">
+        <p>عند اختلاف اليوم مع التاريخ الهجري فإن اليوم المحدد لموعدك هو المعتمد. هذا الإشعار يعتبر وثيقة رسمية ولايحتاج الى توقيع أو
+            ختم</p>
+        <p>للاستفسار عن مواعيد العيادات الخارجية الرجاء الاتصال على الرقم المجاني:8001277000</p>
+    </td>
+</tr>
+<tr>
+    <td colspan="4" class="w3-center">
+        <canvas id="barcode"></canvas>
+    </td>
+</tr>
+</table>
+</div>

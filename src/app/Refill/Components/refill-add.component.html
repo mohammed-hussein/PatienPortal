@@ -1,0 +1,184 @@
+<!-- Modal that pops up when you click on "Add Button" -->
+<div id="id_Addrefill" class="w3-modal" style="z-index:4">
+<div class="w3-modal-content w3-animate-zoom w3-round-large w3-padding-large w3-card-4 w3-white">
+    <div class="w3-container  w3-border-bottom w3-text-gray ">
+        <span (click)="onClose()" class="w3-right w3-xlarge w3-closebtn w3-padding-top"><i class="fa fa-remove"></i></span>
+        <div class="w3-left w3-cyan w3-round-large w3-margin-top w3-margin-right w3-text-white"><i class="fa fa-star-o w3-xlarge w3-padding-small"></i></div>
+        <h2>{{'REFILL.LABELS.NewTitle' | translate}}</h2>
+    </div>
+    <div class="w3-panel">
+        <div [style.display]="!isSaved ? 'block' : 'none'">
+            <form class="form-horizontal" (ngSubmit)="onSubmit()" #refillForm="ngForm">
+                <p class="w3-text-orange w3-large"><b>{{'REFILL.COLUMNS.Patient_Name' | translate:{PatientEnglishName:PatientEnglishName, PatientArabicName:PatientArabicName } }}</b></p>
+                <p class="w3-text-gray">{{'REFILL.LABELS.RefillDesc' | translate}}</p>
+                <p class="w3-text-cyan">{{'REFILL.LABELS.ReqDetails' | translate}}</p>                
+                <!-- Select Basic -->
+                        <!--<select id="ddl_receivingMethod" class="form-control" (change)="Setvalue()" [(ngModel)]="refillRequest.receivingMethod" name="receivingMethod"
+                            required>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="DHL">DHL</option>
+                        </select>-->
+                        <input class="w3-small" type="radio" name="Type" value="DHL" (change)="Setvalue()" [(ngModel)]="refillRequest.receivingMethod">{{'REFILL.LABELS.DHL' | translate}}
+                        <input class="w3-small" type="radio" name="Type"  value="Pharmacy" (change)="Setvalue()" [(ngModel)]="refillRequest.receivingMethod">{{'REFILL.LABELS.Pharmacy' | translate}} 
+                        <br/>
+                        <br/>
+                <!--<div [(hidden)]="refillRequest.IsPharmcy">-->
+                <div *ngIf="!refillRequest.IsPharmcy" >                   
+                    <!-- Mobile input-->
+                    <div class="">
+                        <!--<label class="col-md-2 control-label" for="mobile">mobile</label>
+                        <div class="col-md-4">-->
+                            <input id="inp_mobile" type="number" placeholder="{{'REFILL.LABELS.PH_Mobile' | translate}}" class="w3-input w3-margin-bottom" [(ngModel)]="refillRequest.mobile"
+                                name="mobile" [required]="!refillRequest.IsPharmcy" #mobile="ngModel">
+                            <div *ngIf="!mobile.valid && !mobile.pristine" class="alert alert-danger">
+                                {{'REFILL.LABELS.Mob_Req' | translate}}
+                            </div>
+                        <!--</div>-->
+                    </div>
+
+                    <!-- Other Mobile input-->
+                    <div class="">
+                        <!--<label class="col-md-2 control-label" for="Other Mobile">Other Mobile</label>
+                        <div class="col-md-4">-->
+                            <input id="inp_otherMobile" type="number" placeholder="{{'REFILL.LABELS.PH_OtherMobile' | translate}}" class="w3-input w3-margin-bottom" [(ngModel)]="refillRequest.otherMobile"
+                                name="OtherMobile" [required]="!refillRequest.IsPharmcy" #otherMobile="ngModel">
+                            <div [style.display]="(!otherMobile.valid && !otherMobile.pristine) ? 'block' : 'none'" class="alert alert-danger">
+                                 {{'REFILL.LABELS.OtherMob_Req' | translate}}
+                            </div>
+                        <!--</div>-->
+                    </div>
+
+                    <!-- City Basic -->
+                    <div class="">                       
+                        <!--<label class="col-md-2 control-label" for="City">City</label>
+                        <div class="col-md-4"> -->
+                            <select class="w3-select w3-border-bottom w3-margin-bottom" id="ddl_city" name="city" placeholder="City"
+                                    [(ngModel)]="refillRequest.city" name="city" [required]="!refillRequest.IsPharmcy">
+                                <option value="" disabled [selected]="!refillRequest.city">{{'REFILL.LABELS.ChooseCity' | translate}}</option>
+                                <option *ngFor="let city of cities"  [value]="city.NameEN">
+                                    {{'REFILL.COLUMNS.City_Name' | translate:{CityName_EN:city?.NameEN, CityName_AR:city?.NameAR } }}
+                                </option>
+                            </select>
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!--<div [(hidden)]="!refillRequest.IsPharmcy">-->
+                <!--<div  *ngIf="refillRequest.IsPharmcy" >-->
+                <div [style.display]="refillRequest.IsPharmcy ? 'block' : 'none'">
+                     <!--<div class="">-->
+                        <div class="w3-container w3-padding-large w3-col w3-round alert alert-info w3-animate-zoom w3-margin-top w3-margin-bottom">
+                            <span><i class="fa fa-flag-checkered  w3-padding-right w3-text-red w3-large" aria-hidden="true"></i><b>{{'REFILL.LABELS.Notes' | translate}}</b><br />
+                            <ul class="fa-ul">
+                                    <li><i class="fa-li fa fa-info-circle"></i>{{'REFILL.LABELS.Note_RecMethod' | translate}}</li>
+                                    <li><i class="fa-li fa fa-info-circle"></i>{{'REFILL.LABELS.Note_RecDate' | translate}}</li>
+                                </ul>
+                            </span> <br/>
+                        </div>
+                        <br/><br/>
+                    <!--</div>-->
+                    <!-- Calender input-->
+                    <div class="form-group row">
+                        <!--<label class="col-md-2 control-label" for="calender">Receiving Date</label>-->
+                        <div class="col-md-12">
+                            <!--<input type="text" id="datepicker" #datePicker [ngModel]="date" (blur)="date = datePicker.value">-->
+                            <input type="text" id="datepicker" placeholder="{{'REFILL.LABELS.PH_Receiving_Date' | translate}}" class="w3-select  w3-border-bottom w3-margin-bottom" #datePicker #receivingDate="ngModel"
+                            [(min)]="minDate" [(ngModel)]="refillRequest.receivingDate" name="receivingDate"
+                                [required]="refillRequest.IsPharmcy" (blur)="refillRequest.receivingDate = datePicker.value">
+                            <!--<input id="inp_date" type="date" placeholder="Receiving Date" class="w3-select  w3-border-bottom w3-margin-bottom" (change)="disableWeekends($event, rdate)"
+                                [(min)]="minDate" [(ngModel)]="refillRequest.receivingDate" name="receivingDate" #receivingDate="ngModel"
+                                #rdate [required]="refillRequest.IsPharmcy">-->
+                            <div [style.display]="(!receivingDate.valid && !receivingDate.pristine) ? 'block' : 'none'" class="alert alert-danger">
+                                {{'REFILL.LABELS.ReceivingDate_Req' | translate}}
+                            </div>
+                            <!--<div [style.display]="!isValidDate ? 'block' : 'none'" class="alert alert-danger">
+                                Can't select Weekend, please select a working day Or date after 7 days from Today.
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- Textarea -->
+                <div class="">
+                    <!--<label class="col-md-2 control-label" for="Patient Comment">Patient Comment</label>-->
+                    <p class="w3-text-cyan"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{'REFILL.LABELS.Comments' | translate}}</p>
+                    <textarea class="form-control w3-input w3-margin-bottom w3-border" style="height:100px" id="txt_patientComment" placeholder="{{'REFILL.LABELS.PH_Patient_Comment' | translate}}" 
+                                [(ngModel)]="refillRequest.patientComment" name="patientComment">
+                    </textarea>
+                </div>
+
+                <!-- Button (Double) -->
+                <div class="">
+                    <div class="w3-section">
+                        <a class="w3-btn w3-right w3-red w3-text-white w3-margin-left" (click)="onClose()">{{'REFILL.LABELS.Cancel' | translate}} <i class="fa fa-times"></i></a>
+                        <button class="w3-btn w3-right w3-cyan w3-text-white w3-margin-left" type="button" (click)="onSubmit()" [disabled]="!refillForm.form.valid">
+                            {{'REFILL.LABELS.Send' | translate}}
+                        <i class="fa fa-paper-plane"></i></button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 control-label" for="btn_Save"></label>
+                    <div class="col-md-8">
+                        <!--{{diagnostic}}-->
+                        <div ID="Lit_Fail" [style.display]="isError ? 'block' : 'none'" class="alert alert-danger" [innerHTML]="'REFILL.LABELS.Sys_Err' | translate:{errorMsg: errorMsg }">
+                            <!--<strong>Error!</strong> System Error, {{errorMsg}}.-->
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div [style.display]="isSaved ? 'block' : 'none'">
+            <div class="form-group row">
+                <div class="col-md-8">
+                    <!--{{diagnostic}}-->
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <div ID="Lit_Success" visible="false" class="alert alert-success" [innerHTML]="'REFILL.LABELS.Sys_Success' | translate">
+                    <!--<strong>Success!</strong> Refill Request submitted successfully.-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--
+<div id="id01" class="w3-modal" style="z-index:4">
+  <div class="w3-modal-content w3-animate-zoom w3-round-large w3-padding-large w3-card-4 w3-white">
+    <div class="w3-container  w3-border-bottom w3-text-gray ">
+       <span onclick="document.getElementById('id01').style.display='none'" class="w3-right w3-xlarge w3-closebtn w3-padding-top"><i class="fa fa-remove"></i></span>
+               <div class="w3-left w3-cyan w3-round-large w3-margin-top w3-margin-right w3-text-white"><i class="fa fa-star-o w3-xlarge w3-padding-small"></i></div>
+      <h2>New Medication Refill</h2>
+    </div>
+    <div class="w3-panel">
+    <p class="w3-text-orange w3-large"><b>Rawan Sulieman AlOmran</b></p>
+    <p class="w3-text-gray">You can request for medication refill and it will be ready for you to pick-up or ship if you are outside Riyadh !</p>
+         <p class="w3-text-cyan">Request Details</p>
+           <input class="w3-small" type="radio" name="Type" value="Idea"> DHL 
+        <input class="w3-small" type="radio" name="Type" value="Question"> Pharmacy
+        <div class="w3-container  w3-padding-large w3-text-black w3-col w3-border-gray w3-border  w3-round w3-opacity-min w3-light-gray w3-animate-zoom w3-margin-top w3-margin-bottom">
+            <span><i class="fa fa-flag-checkered  w3-padding-right w3-text-red w3-large" aria-hidden="true"></i><b>Notes:</b><br />
+            1. Receiving medicine start Sunday and end up Thursday every week, from 3:00 PM till 6 PM  <br />
+            2. in case you are delayed to receive medicine 48 hours, you should add new request</span> <br /></div>
+        <br/><br/>
+          <input type="datetime-local" class="w3-select  w3-border-bottom w3-margin-bottom" name="option" placeholder="Date">
+
+
+        <input class="w3-input w3-margin-bottom " type="text" placeholder="Your Mobile">
+        <input class="w3-input w3-margin-bottom " type="text" placeholder="Other Mobile">
+        <div class="w3-clear">  <select class="w3-select w3-border-bottom w3-margin-bottom " name="option" placeholder="City">
+            <option value="" disabled selected>Choose your City</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select> 
+        </div>
+      <p class="w3-text-cyan"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Comments</p>
+      <input class="w3-input w3-margin-bottom w3-border" style="height:100px"  multiple>
+      <div class="w3-section">
+        <a class="w3-btn w3-right w3-red w3-text-white w3-margin-left" onclick="document.getElementById('id01').style.display='none'"> Cancel  <i class="fa fa-times"></i></a> 
+        <a class="w3-btn w3-right w3-cyan w3-text-white w3-margin-left" onclick="document.getElementById('id01').style.display='none'"> Send  <i class="fa fa-paper-plane"></i></a>    
+      </div> 
+    </div>
+  </div>
+</div>-->
