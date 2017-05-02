@@ -25,7 +25,7 @@ export class AppointmentsAllComponent implements OnInit {
     ngOnInit(): void {
         // this.showData = false;
         this.route.params.subscribe(params => {
-            let ParamValue = params['id'];
+            const ParamValue = params['id'];
             if (ParamValue && ParamValue.toLowerCase() === 'previous'.toLowerCase()) {
                 this.isPervious = true;
             }
@@ -50,6 +50,8 @@ export class AppointmentsAllComponent implements OnInit {
     };
 
     onSelect(appointment: Appointment): void {
+        debugger;
+        appointment.isPervious = this.isPervious;
         this.selectedAppoint = appointment;
         this._Appointment.selectedAppointment = new Appointment();
         this._Appointment.selectedAppointment = appointment;

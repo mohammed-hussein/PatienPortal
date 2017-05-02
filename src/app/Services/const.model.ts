@@ -15,8 +15,8 @@ export class AuthConfigConsts {
 export class AppConstant {
     // public static APP_URL: string = 'http://localhost:5050/' ;
     // public static APP_URL: string = 'http://10.241.16.51:8888/' ;
-    // public static APP_URL: string = 'http://localhost:8888/' ;
-    public static APP_URL: string = 'https://patientapi.kfmc.med.sa/' ;
+    public static APP_URL: string = 'http://localhost:8888/' ;
+    // public static APP_URL: string = 'https://patientapi.kfmc.med.sa/' ;
 
     // Activation code Constant
     public static Activaion_Code_ExpireTime: number = 5 * 60 ; // in seconds

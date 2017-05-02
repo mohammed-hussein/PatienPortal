@@ -34,6 +34,7 @@ export class AppointemntsDetailsComponent implements OnInit {
     }
 
     getAppointment() {
+        debugger;
         this.MRN = this._userSession.getUserId();
         this.EnglishName = this._userSession.getEnglishName();
         this.Arabic_Name = this._userSession.getArabicName();
@@ -56,6 +57,10 @@ export class AppointemntsDetailsComponent implements OnInit {
             this._Appointment.cancelAppointments(this.APPOID).then(data => alert(data))
                 .catch(error => this._Logger.Error(error));
         } else { }
+    }
+
+    RespondAppointment() {
+
     }
 
     printAppointment() {

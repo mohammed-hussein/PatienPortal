@@ -14,6 +14,7 @@ export class MedicalFunctionsService {
 
     private appointmentsServiceURL: string = AppConstant.APP_URL + 'api/MedicalFunc/Appointments';
     private previousAppointmentsServiceURL: string = AppConstant.APP_URL + 'api/MedicalFunc/Appointments/Previous';
+    private surveyAppointmentsServiceURL: string = AppConstant.APP_URL + 'api/MedicalFunc/Appointments/Previous/Survey';
     // private cancelAppointmentsServiceURL: string = AppConstant.APP_URL + 'api/MedicalFunc/Appointment/12345/Cancel';
 
     private diagnosisServiceURL: string = AppConstant.APP_URL + 'api/MedicalFunc/Diagnosis';
@@ -56,6 +57,13 @@ export class MedicalFunctionsService {
     }
 
     cancelAppointments(APPOID: string): Promise<string> {
+        return this._httpAuth.post(this.appointmentsServiceURL + '/' + APPOID + '/Cancel', JSON.stringify(''), { headers: this.headers })
+            .toPromise()
+            .then(response => response.json())
+            .catch(this._Logger.handleError);
+    }
+
+    surveyAppointements() {
         return this._httpAuth.post(this.appointmentsServiceURL + '/' + APPOID + '/Cancel', JSON.stringify(''), { headers: this.headers })
             .toPromise()
             .then(response => response.json())

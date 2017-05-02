@@ -68,6 +68,8 @@
     "LABELS":{
       "Profile":            "Profile",
       "Appointments":       "Appointments",
+      "NextAppointments":   "Next Appointments",
+      "PrevAppointments":   "Previous Appointments",
       "Medications":        "Medications",
       "AllMedications":     "All Medications",
       "Refill_Req":         "Refill Requests",
@@ -118,7 +120,8 @@
       "Status":             "Status",
       "Building":           "Building",
       "Floor":              "Floor",
-      "NOTES":              "Notes"
+      "NOTES":              "Notes",
+      "Survey":             "Respont Survey"
     },
     "COLUMNS":{
       "STATUS":             "{{STATUS_EN}}",

@@ -25,4 +25,6 @@ export class Appointment {
     Floor: string;
     Building: string;
     error_msg: string;
+
+    isPervious: boolean;
 }

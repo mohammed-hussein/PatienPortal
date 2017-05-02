@@ -22,7 +22,7 @@ const Childsroutes: Routes = [
     ]
   },
   {
-    path: 'Appointments/:id', component: AppointmentsContainerComponent, canActivate: [AuthManagerService],
+    path: 'Appoint/:id', component: AppointmentsContainerComponent, canActivate: [AuthManagerService],
     children:
     [
       { path: 'details/:id', component: AppointemntsDetailsComponent, canActivate: [AuthManagerService] },

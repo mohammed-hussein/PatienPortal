@@ -68,6 +68,8 @@
     "LABELS":{
       "Profile":            "الملف الشخصي",
       "Appointments":       "المواعيد",
+      "NextAppointments":   "المواعيد",
+      "PrevAppointments":   "المواعيد السابقة",
       "Medications":        "الأدوية",
       "AllMedications":     "جميع الأدوية",
       "Refill_Req":         "طلبات إعادة الصرف",
@@ -118,7 +120,8 @@
       "Status":             "الحالة",
       "Building":           "المبنى",
       "Floor":              "الطابق",
-      "NOTES":              "ملاحظات"
+      "NOTES":              "ملاحظات",
+      "Survey":             "أستجابةللستطلاع"
     },
     "COLUMNS":{
       "STATUS":             "{{STATUS_AR}}",

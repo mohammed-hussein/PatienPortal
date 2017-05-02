@@ -1,51 +1,67 @@
 <div [style.display]="isAuthenticated ? 'block' : 'none'" class="bodyclss">
   <!-- Sidenav/menu -->
   <nav class="w3-sidenav w3-collapse w3-blue w3-animate-left collapse" style="z-index:3;" id="mySidenav" ><br/>
-<div class="w3-animate-left">
-  <!--<a class="w3-padding w3-center" (click)="myFunc_show_hide()" id="hide_navText_btn"><i class="flaticon-more-1"></i></a>-->
-  <a class="w3-padding w3-center" (click)="myFunc('hide_navText_btn')" id="hide_navText_btn"><i class="flaticon-more-1"></i></a>
-  <a [routerLink]="['/UserProfile']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-user"></i> <span class="navText w3-small w3-animate-left">{{ 'MENU.LABELS.Profile' | translate}}</span></a>
-  <a [routerLink]="['/Appointments']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-interface"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Appointments' | translate}}</span></a>
-  <a class="w3-padding w3-xlarge" routerLinkActive="w3-light-blue" (click)="myFunc('med')"> <i class="flaticon-drugs"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Medications' | translate}} <i class="fa fa-caret-down w3-padding-tiny"></i></span></a>
-<div id="med" class="w3-accordion-content  w3-margin-left  w3-small">
-  <a [routerLink]="['/Medications']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left"> {{ 'MENU.LABELS.AllMedications' | translate}}</span></a>
-  <a [routerLink]="['/RefillRequests']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Refill_Req' | translate}}</span> </a>
-</div>
-<a [routerLink]="['/Diagnosis']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-stethoscope-1"></i> <span class=" navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Diagnosis' | translate}}</span></a>
-<a [routerLink]="['/Labs']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-research"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.LabTests' | translate}}</span></a>
-<a class="w3-padding w3-xlarge" routerLinkActive="w3-light-blue" (click)="myFunc('Radio')"> <i class="flaticon-skeleton-view-on-x-ray"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Radiology' | translate}} <i class="fa fa-caret-down w3-padding-tiny"></i></span></a>
-<div id="Radio" class="w3-accordion-content   w3-small w3-margin-left">
-  <a [routerLink]="['/Radiologies']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Rid_Appointments' | translate}}</span></a>
-  <a [routerLink]="['/RadiologyReports']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Rid_Reports' | translate}}</span> </a>
-</div>
-<a class="w3-padding w3-xlarge" routerLinkActive="w3-light-blue" (click)="myFunc('Report')"> <i class="flaticon-sheet"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Reports' | translate}} <i class="fa fa-caret-down w3-padding-tiny"></i></span></a>
-<div id="Report" class="w3-accordion-content   w3-small w3-margin-left">
-  <a [routerLink]="['/Reports/1']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Sick_Leave' | translate}}</span></a>
-  <a [routerLink]="['/Reports/3']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Watcher_Leave' | translate}}</span> </a>
-  <a [routerLink]="['/Reports/2']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Discharge_Summery' | translate}}</span></a>
-  <a [routerLink]="['/ROI']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Medical_Report' | translate}}</span> </a>
-</div>
-<a [routerLink]="['/Feedbacks']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-tool-1"></i> <span class="navText w3-small w3-animate-left">{{ 'MENU.LABELS.TellUs' | translate}}</span></a>
+    <div class="w3-animate-left">
+      <!--<a class="w3-padding w3-center" (click)="myFunc_show_hide()" id="hide_navText_btn"><i class="flaticon-more-1"></i></a>-->
+      <a class="w3-padding w3-center" (click)="myFunc('hide_navText_btn')" id="hide_navText_btn"><i class="flaticon-more-1"></i></a>
+      <a [routerLink]="['/UserProfile']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-user"></i> <span class="navText w3-small w3-animate-left">{{ 'MENU.LABELS.Profile' | translate}}</span></a>
+      
+      <!--<a [routerLink]="['/Appointments']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-interface"></i> 
+        <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Appointments' | translate}}</span>
+      </a>-->
+      <!-- Appointments -->
+      <a (click)="myFunc('Appo')" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-interface"></i> 
+        <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Appointments' | translate}} <i class="fa fa-caret-down w3-padding-tiny"></i> </span>
+      </a>
+      <div id="Appo" class="w3-accordion-content w3-margin-left w3-small">
+        <a [routerLink]="['/Appointments']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left"> {{ 'MENU.LABELS.NextAppointments' | translate}}</span></a>
+        <a [routerLink]="['/Appoint/previous']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left"> {{ 'MENU.LABELS.PrevAppointments' | translate}}</span></a>
+      </div>
+      
+      <!-- Medications -->
+      <a (click)="myFunc('med')" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-drugs"></i> 
+        <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Medications' | translate}} <i class="fa fa-caret-down w3-padding-tiny"></i></span>
+      </a>
+      <div id="med" class="w3-accordion-content  w3-margin-left  w3-small">
+        <a [routerLink]="['/Medications']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left"> {{ 'MENU.LABELS.AllMedications' | translate}}</span></a>
+        <a [routerLink]="['/RefillRequests']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Refill_Req' | translate}}</span> </a>
+      </div>
 
-<logout isAnimate='true'></logout>
+      <a [routerLink]="['/Diagnosis']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-stethoscope-1"></i> <span class=" navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Diagnosis' | translate}}</span></a>
+      <a [routerLink]="['/Labs']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-research"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.LabTests' | translate}}</span></a>
+      <a class="w3-padding w3-xlarge" routerLinkActive="w3-light-blue" (click)="myFunc('Radio')"> <i class="flaticon-skeleton-view-on-x-ray"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Radiology' | translate}} <i class="fa fa-caret-down w3-padding-tiny"></i></span></a>
+      <div id="Radio" class="w3-accordion-content   w3-small w3-margin-left">
+      <a [routerLink]="['/Radiologies']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Rid_Appointments' | translate}}</span></a>
+      <a [routerLink]="['/RadiologyReports']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Rid_Reports' | translate}}</span> </a>
+      </div>
+      <a class="w3-padding w3-xlarge" routerLinkActive="w3-light-blue" (click)="myFunc('Report')"> <i class="flaticon-sheet"></i> <span class="navText w3-small w3-animate-left"> {{ 'MENU.LABELS.Reports' | translate}} <i class="fa fa-caret-down w3-padding-tiny"></i></span></a>
+      <div id="Report" class="w3-accordion-content   w3-small w3-margin-left">
+      <a [routerLink]="['/Reports/1']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Sick_Leave' | translate}}</span></a>
+      <a [routerLink]="['/Reports/3']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Watcher_Leave' | translate}}</span> </a>
+      <a [routerLink]="['/Reports/2']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Discharge_Summery' | translate}}</span></a>
+      <a [routerLink]="['/ROI']" routerLinkActive="w3-light-blue" class=""><span class="w3-opacity-min w3-animate-left">{{ 'MENU.LABELS.Medical_Report' | translate}}</span> </a>
+      </div>
+      <a [routerLink]="['/Feedbacks']" routerLinkActive="w3-light-blue" class="w3-padding w3-xlarge"> <i class="flaticon-tool-1"></i> <span class="navText w3-small w3-animate-left">{{ 'MENU.LABELS.TellUs' | translate}}</span></a>
 
-<!--<a routerLinkActive="w3-light-blue" class="w3-padding-large w3-large "><i class="fa fa-sign-out"></i> 
-  <span class="navText w3-hide  w3-small w3-animate-left"> 
-    Logout
-  </span>
-</a>-->
+      <logout isAnimate='true'></logout>
 
-<div class="w3-accordion w3-small w3-hide-large">
-  <a routerLinkActive="w3-light-blue" (click)="myFunc('Lang')" href="#">{{ 'MENU.LABELS.Lang' | translate}}<i class="fa fa-caret-down w3-padding-tiny"></i></a>
-<div id="Lang" class="w3-accordion-content w3-animate-top">
-  <a routerLinkActive="w3-light-blue" (click)="changeLanguage('ar-SA')" class=""><span class="w3-opacity-min">{{ 'MENU.LABELS.Lang_AR' | translate}}</span></a>
-  <a routerLinkActive="w3-light-blue" (click)="changeLanguage('en-US')" class=""><span class="w3-opacity-min">{{ 'MENU.LABELS.Lang_EN' | translate}}</span> </a>
-</div>
-</div>
+      <!--<a routerLinkActive="w3-light-blue" class="w3-padding-large w3-large "><i class="fa fa-sign-out"></i> 
+      <span class="navText w3-hide  w3-small w3-animate-left"> 
+        Logout
+      </span>
+      </a>-->
 
-</div>
-</nav>
+      <div class="w3-accordion w3-small w3-hide-large">
+      <a routerLinkActive="w3-light-blue" (click)="myFunc('Lang')" href="#">{{ 'MENU.LABELS.Lang' | translate}}<i class="fa fa-caret-down w3-padding-tiny"></i></a>
+      <div id="Lang" class="w3-accordion-content w3-animate-top">
+      <a routerLinkActive="w3-light-blue" (click)="changeLanguage('ar-SA')" class=""><span class="w3-opacity-min">{{ 'MENU.LABELS.Lang_AR' | translate}}</span></a>
+      <a routerLinkActive="w3-light-blue" (click)="changeLanguage('en-US')" class=""><span class="w3-opacity-min">{{ 'MENU.LABELS.Lang_EN' | translate}}</span> </a>
+      </div>
+      </div>
 
-<!-- Overlay effect when opening sidenav on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" (click)="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidenav on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" (click)="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 </div>
