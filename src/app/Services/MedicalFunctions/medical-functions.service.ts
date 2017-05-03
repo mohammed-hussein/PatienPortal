@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 
-import { AuthHttp, AppConstant, Appointment, Diagnosis, Medication, LabProcedure, Radiology } from '../index';
+import { AuthHttp, AppConstant, Appointment, Diagnosis, Medication, LabProcedure, Radiology, AppointmentSurvey } from '../index';
 import { LoggerService } from '../../SharedServices/index';
 
 @Injectable()
@@ -63,8 +63,8 @@ export class MedicalFunctionsService {
             .catch(this._Logger.handleError);
     }
 
-    surveyAppointements() {
-        return this._httpAuth.post(this.appointmentsServiceURL + '/' + APPOID + '/Cancel', JSON.stringify(''), { headers: this.headers })
+    surveyAppointements(survey: AppointmentSurvey) {
+        return this._httpAuth.post(this.surveyAppointmentsServiceURL, JSON.stringify(survey), { headers: this.headers })
             .toPromise()
             .then(response => response.json())
             .catch(this._Logger.handleError);

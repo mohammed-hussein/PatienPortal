@@ -121,7 +121,8 @@
       "Building":           "المبنى",
       "Floor":              "الطابق",
       "NOTES":              "ملاحظات",
-      "Survey":             "أستجابةللستطلاع"
+      "Survey":             "أستجابةللستطلاع",
+      "SurveyTitle":        "رأيك يهمنا"
     },
     "COLUMNS":{
       "STATUS":             "{{STATUS_AR}}",

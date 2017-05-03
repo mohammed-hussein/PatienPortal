@@ -34,7 +34,6 @@ export class AppointemntsDetailsComponent implements OnInit {
     }
 
     getAppointment() {
-        debugger;
         this.MRN = this._userSession.getUserId();
         this.EnglishName = this._userSession.getEnglishName();
         this.Arabic_Name = this._userSession.getArabicName();
@@ -60,7 +59,7 @@ export class AppointemntsDetailsComponent implements OnInit {
     }
 
     RespondAppointment() {
-
+        this.router.navigate(['Appoint/previous/survey', this.APPOID]);
     }
 
     printAppointment() {

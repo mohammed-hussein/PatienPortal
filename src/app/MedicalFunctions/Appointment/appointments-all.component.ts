@@ -50,7 +50,6 @@ export class AppointmentsAllComponent implements OnInit {
     };
 
     onSelect(appointment: Appointment): void {
-        debugger;
         appointment.isPervious = this.isPervious;
         this.selectedAppoint = appointment;
         this._Appointment.selectedAppointment = new Appointment();

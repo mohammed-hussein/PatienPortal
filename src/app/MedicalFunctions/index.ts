@@ -2,6 +2,7 @@
 export {AppointmentsContainerComponent} from './Appointment/appointments-container.component';
 export {AppointemntsDetailsComponent} from './Appointment/appointemnts-details.component';
 export {AppointmentsAllComponent} from './Appointment/appointments-all.component';
+export {AppointementsSatisfactionComponent} from './Appointment/appointements-satisfaction.component';
 
 export {DiagnosisComponent} from './Diagnosis/diagnosis.component';
 export {DiagnosisContainerComponent} from './Diagnosis/diagnosis-container.component';

@@ -7,7 +7,7 @@ import {
   MedicationsContainerComponent, MedicationsDetailsComponent,
   RadiologiesContainerComponent, RadiologiesDetailsComponent,
   LabContainerComponent, LabProcedureDetailsComponent,
-  NoRecordsComponent,
+  NoRecordsComponent, AppointementsSatisfactionComponent
 } from './index';
 
 import { AuthManagerService } from '../Services/Auth/auth-manger.service';
@@ -25,6 +25,7 @@ const Childsroutes: Routes = [
     path: 'Appoint/:id', component: AppointmentsContainerComponent, canActivate: [AuthManagerService],
     children:
     [
+      { path: 'survey/:id', component: AppointementsSatisfactionComponent, canActivate: [AuthManagerService] },
       { path: 'details/:id', component: AppointemntsDetailsComponent, canActivate: [AuthManagerService] },
       { path: 'nodata/:msg', component: NoRecordsComponent, canActivate: [AuthManagerService] },
     ]

@@ -15,6 +15,7 @@ export * from './MedicalFunctions/appointment.model';
 export * from './MedicalFunctions/Diagnosis.model';
 export * from './MedicalFunctions/labProcedure.model';
 export * from './MedicalFunctions/Radiology.model';
+export * from './MedicalFunctions/appointment-survey.model';
 
 export * from './Reports/reports.service';
 export * from './Reports/report.model';

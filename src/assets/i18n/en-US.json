@@ -121,7 +121,8 @@
       "Building":           "Building",
       "Floor":              "Floor",
       "NOTES":              "Notes",
-      "Survey":             "Respont Survey"
+      "Survey":             "Respont Survey",
+      "SurveyTitle":        "Satisfaction Survey"
     },
     "COLUMNS":{
       "STATUS":             "{{STATUS_EN}}",

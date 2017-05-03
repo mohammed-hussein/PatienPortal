@@ -56,7 +56,7 @@ export class RefillRequestsListComponent implements OnInit {
     }
 
     openAdd() {
-        let element = document.getElementById('id_Addrefill');
+        const element = document.getElementById('id_Addrefill');
         element.style.display = 'block';
     }
 }
