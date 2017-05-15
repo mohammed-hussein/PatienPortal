@@ -30,9 +30,10 @@ export class NewDesignComponent implements OnInit, OnDestroy {
         const browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en-US|ar-SA/) ? browserLang : 'en-US');
 
-        this.subscribtion = Session.onTimeoutWarning.subscribe(() => {
-            this.router.navigate(['/Sessiontimeout']);
-        });
+        // this.subscribtion = Session.onTimeoutWarning.subscribe(() => {
+        //     this.router.navigate(['/Sessiontimeout']);
+        // });
+        // this.Session.start();
     }
 
     ngOnInit() { }

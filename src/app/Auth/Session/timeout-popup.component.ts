@@ -10,18 +10,20 @@ import { SessionExpireService } from '../../Services/index';
 
 @Component({
     moduleId: module.id,
-    selector: 'session-timeout',
-    templateUrl: './session-timeout.component.html'
+    selector: 'app-timeout-popup',
+    templateUrl: './timeout-popup.component.html'
 })
 
-export class SessionTimeoutComponent implements OnInit, OnDestroy {
+export class TimeoutPopupComponent implements OnInit, OnDestroy {
     countdown: number;
     percentage = 100;
     isExpired: boolean;
-    sessionActive: boolean = true;
+    sessionActive = true;
+
     private timeOutsubscribtion: any;
     private SessionStartsubscribtion: any;
     private warningsubscribtion: any;
+    private idleEndsubscribtion: any;
 
     constructor(private router: Router, private Session: SessionExpireService, private _AuthService: AuthService,
                 private _Logger: LoggerService, private translate: TranslateService) {
@@ -29,6 +31,7 @@ export class SessionTimeoutComponent implements OnInit, OnDestroy {
         this.SessionStartsubscribtion = Session.onSessionStart.subscribe(() => this.sessionStartHandler());
         this.warningsubscribtion = Session.onTimeoutWarning.subscribe((count: number) => this.sessionWarningHandler(count));
         this.timeOutsubscribtion = Session.onSessionTimeout.subscribe(() => this.sessionExpiredHandler());
+        this.idleEndsubscribtion = Session.onIdleEnd.subscribe(() => this.IdleEndHandler());
     }
 
     ngOnInit() { }
@@ -38,23 +41,32 @@ export class SessionTimeoutComponent implements OnInit, OnDestroy {
         this.timeOutsubscribtion.unsubscribe();
         this.SessionStartsubscribtion.unsubscribe();
         this.warningsubscribtion.unsubscribe();
+        this.idleEndsubscribtion.unsubscribe();
     }
 
     sessionStartHandler() {
-        debugger;
         this._Logger.debug('Session started..');
         this.sessionActive = true;
     }
     sessionExpiredHandler() {
-        debugger;
-        this.isExpired = true;
         this.sessionActive = false;
+        this.isExpired = true;
         this._AuthService.logout().then(() => this._Logger.debug('Log out'));
     }
 
     sessionWarningHandler(counter: number) {
         this.sessionActive = false;
+        this.isExpired = false;
         this.countdown = counter;
         this.percentage = (this.countdown / AppConstant.Session_Expire_Warning) * 100;
+    }
+
+    IdleEndHandler() {
+        this.sessionActive = true;
+        this.isExpired = false;
+    }
+
+    onClose() {
+        this.sessionActive = true;
     }
 }

@@ -1,9 +1,10 @@
-<div class="w3-modal" [ngClass]="{'w3-show': sessionActive}">
-    <div class="modal-dialog panel  w3-modal-content w3-animate-zoom w3-round-large w3-padding-large w3-card-4 w3-white">
+<div class="w3-modal" [ngClass]="{'w3-show': !sessionActive}" >
+    <div class="modal-dialog w3-animate-zoom w3-round-large w3-padding-large">
         <div class="modal-content panel-danger" [style.display]="isExpired ? 'block' : 'none'">
             <!-- [hidden]="!isExpired" -->
             <div class="modal-header panel-heading">
-                <h3 class="panel-title"><strong>{{'SESSION.LABELS.TimedOut' | translate}}</strong></h3>
+                <span (click)="onClose()" class="w3-right w3-xlarge w3-closebtn w3-padding-top"><i class="fa fa-remove"></i></span>
+                <h3 >{{'SESSION.LABELS.TimedOut' | translate}}</h3>
             </div>
             <div class="modal-body">
                 <p>
@@ -16,7 +17,7 @@
             <!-- [hidden]="isExpired" -->
             <div class="modal-header panel-heading">
                 <h3 class="panel-title"><strong> {{'SESSION.LABELS.Session_Timeout' | translate}}</strong></h3>
-            </div>
+            </div>            
             <div class="modal-body">
                 <p>{{'SESSION.LABELS.Counter_MSG'| translate}} <span class="label label-warning">{{countdown}}</span>
                     <span

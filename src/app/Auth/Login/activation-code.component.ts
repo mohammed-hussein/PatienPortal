@@ -90,10 +90,10 @@ export class ActivationCodeComponent implements OnInit {
 
   }
 
-  StartUserSession() {
-    // start session
-    this.Session.start();
-  }
+  // StartUserSession() {
+  //   // start session
+  //   this.Session.start();
+  // }
 
   // private handleError(error: any) {
   //   console.error('token failed');

@@ -44,7 +44,7 @@ export class SessionHandlerService {
         // start session
         AppConstant.Activation_TimeOut = true;
         // expire before 1 minute from Server Side expire
-        AppConstant.Session_Time = this.getExpire_in() - AppConstant.SESSION_DELAY_TIME;
+        // AppConstant.Session_Time = this.getExpire_in() - AppConstant.SESSION_DELAY_TIME;
         this.Session.start();
     }
 

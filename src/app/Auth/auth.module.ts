@@ -14,13 +14,13 @@ import { SharedComponentModule } from '../SharedComponents/shared-components.mod
 // import {ProfileComponent} from './Profile/profile.component';
 
 import {SpMenucomponent} from './spmenu.component';
-import {LoginComponent, ActivationCodeComponent, ProfileComponent, SessionTimeoutComponent} from './index';
+import {LoginComponent, ActivationCodeComponent, ProfileComponent, SessionTimeoutComponent, TimeoutPopupComponent} from './index';
 
 
 @NgModule({
     imports: [SharedModule, SharedComponentModule],
-    exports: [LoginComponent, ActivationCodeComponent, SpMenucomponent, SessionTimeoutComponent, ProfileComponent],
-    declarations: [LoginComponent, ActivationCodeComponent, SpMenucomponent, SessionTimeoutComponent, ProfileComponent],
+    exports: [LoginComponent, ActivationCodeComponent, SpMenucomponent, SessionTimeoutComponent, ProfileComponent, TimeoutPopupComponent],
+    declarations: [LoginComponent, ActivationCodeComponent, SpMenucomponent, SessionTimeoutComponent, ProfileComponent, TimeoutPopupComponent],
 })
 
 export class AuthMdodule {}

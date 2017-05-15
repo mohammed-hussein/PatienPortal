@@ -2,8 +2,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, Http } from '@angular/http';
 
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
 
 // import { AppComponent } from './app.component';
 import { NewDesignComponent } from './newDesign.component';
@@ -39,7 +40,7 @@ import { SharedComponentModule } from './SharedComponents/shared-components.modu
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
-    return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http);
 }
 
 @NgModule({
@@ -57,12 +58,13 @@ export function HttpLoaderFactory(http: Http) {
     SharedComponentModule,
     HttpModule,
     TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [Http]
-            }
-        })
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [Http]
+      }
+    }),
+    NgIdleKeepaliveModule.forRoot()
   ],
   providers: [TellusService,
     RefillService,
@@ -81,7 +83,7 @@ export function HttpLoaderFactory(http: Http) {
     // SessionExpireService,
     // {provide: ErrorHandler, useClass: CustomErrorHandler},
   ],
-  declarations: [ NewDesignComponent ],
+  declarations: [NewDesignComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [NewDesignComponent]
 })

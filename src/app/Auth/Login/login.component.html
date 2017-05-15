@@ -7,15 +7,20 @@
             <div class="modal-body">
                 <div class="w3-container ">
                     <p>{{'LOGIN.DESC' | translate}}</p>
-                    <input class="w3-animate-input w3-input" type="number" placeholder="{{'LOGIN.PlaceHolder' | translate}}" name="MRN" (keyup.enter)="login()" [(ngModel)]="MRN"
-                        required autofocus>
-                    <br />
-                    <div class="w3-container w3-padding alert alert-danger" [style.display]="!isValid ? 'block' : 'none'">
+                    <input class="w3-animate-input w3-input" type="number" placeholder="{{'LOGIN.PlaceHolder' | translate}}" name="MRN" (keyup.enter)="login()"
+                        [(ngModel)]="MRN" required autofocus>
+                    <div class="w3-container w3-padding alert-danger" [style.display]="!isValid ? 'block' : 'none'">
                         <p>{{'LOGIN.Error' | translate}}</p>
                     </div>
                 </div>
-                <div class="w3-container w3-padding">
+                <div class="w3-panel w3-padding" [ngClass]="{'w3-hide': _LoadingService.isLoading}">
                     <button type="button" class="w3-btn-block w3-blue w3-text-white" (click)="login()">{{'LOGIN.BUTTON' | translate}}</button>
+                </div>
+                <div class="w3-panel w3-border w3-pale-yellow alert alert-warning w3-padding w3-center" [ngClass]="{'w3-hide': !_LoadingService.isLoading}">
+                    <app-Loading></app-Loading>
+                    <div>
+                        <p class="">Sending SMS to your mobile number</p>
+                    </div>
                 </div>
                 <div class="w3-text-deep-orange w3-hyperlink w3-padding w3-margin">
                     <a [href]="'LOGIN.Mobile_Update' | translate">{{'LOGIN.UPDATEMOB' | translate}}</a>
@@ -28,29 +33,3 @@
         </div>
     </div>
 </div>
-
-
-<!--
-<div class="w3-container w3-white w3-text-black w3-padding w3-round-large w3-card-4 w3-display-middle w3-animate-opacity">
-    <div class=" w3-margin ">
-        <h3 class="w3-text-dark-blue w3-border-bottom w3-padding">Patient Portal Login</h3>
-        <form>
-            <div class="w3-container ">
-                <p>Enter Your Medical Record Number</p>
-                <input class="w3-animate-input w3-input" type="text" placeholder="MRN" name="MRN" [(ngModel)]="MRN" required>
-            </div>
-            <br />
-            <div class="w3-container w3-padding">
-                <button type="button" class="w3-btn-block w3-blue w3-text-white" (click)="login()">Login</button>
-            </div>
-
-            <div class="w3-text-deep-orange w3-hyperlink w3-padding w3-margin">
-                <a href="https://www.kfmc.med.sa/AR/Patient/Pages/UpdatePersonalInformation.aspx">Need To Update Your Mobile Number ?</a>
-            </div>
-        </form>
-    </div>
-    <hr />
-    <div class="w3-center w3-opacity w3-small">
-        <p>Patient Portal © 2017, King Fahad Medical City</p>
-    </div>
-</div>-->

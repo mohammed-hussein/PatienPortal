@@ -21,8 +21,8 @@ export class AppConstant {
     // Activation code Constant
     public static Activaion_Code_ExpireTime: number = 5 * 60 ; // in seconds
     public static Activation_TimeOut: boolean = true;
-    // App Session Constant 
-    public static Session_Time: number = 100 ; // in seconds
+    // App Session Constant
+    public static Session_Time: number = 10 ; // in seconds
     public static Session_Expire_Warning: number = 5 ; // in seconds
     public static SESSION_DELAY_TIME: number = 60 ; // in seconds
 

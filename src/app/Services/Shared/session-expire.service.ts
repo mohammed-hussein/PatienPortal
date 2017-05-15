@@ -4,6 +4,9 @@ import { SessionState } from './session-state.model';
 import { AppConstant } from '../const.model';
 import { LoggerService } from '../../SharedServices/index';
 
+import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
+
+
 @Injectable()
 export class SessionExpireService implements OnInit, OnDestroy {
 
@@ -14,13 +17,41 @@ export class SessionExpireService implements OnInit, OnDestroy {
     public onSessionStart: EventEmitter<number>;
     public onTimeoutWarning: EventEmitter<number>;
     public onSessionTimeout: EventEmitter<number>;
+    public onIdleEnd: EventEmitter<number>;
+
+    private idleEndsubscribtion: any;
+    private idleStartsubscribtion: any;
+    private warningsubscribtion: any;
+    private timeoutsubscribtion: any;
+
     [key: string]: any;
 
-    constructor(private _Logger: LoggerService) {
+    constructor(private _Logger: LoggerService, private idle: Idle) {
         // console.assert(true, 'initate Session service');
         this.onSessionStart = new EventEmitter<number>();
         this.onTimeoutWarning = new EventEmitter<number>();
         this.onSessionTimeout = new EventEmitter<number>();
+        this.onIdleEnd = new EventEmitter<number>();
+
+        this.idleEndsubscribtion = idle.onIdleEnd.subscribe(() => {
+            _Logger.info('No longer idle.');
+            this.onIdleEnd.emit(null);
+
+        });
+
+        this.idleStartsubscribtion = idle.onIdleStart.subscribe(() => _Logger.info('You\'ve gone idle!'));
+
+        this.timeoutsubscribtion = idle.onTimeout.subscribe(() => {
+            _Logger.Warning('Timed out!');
+            this.state.IsActive = false;
+            this.onSessionTimeout.emit(null);
+        });
+
+        this.warningsubscribtion = idle.onTimeoutWarning.subscribe((countdown) => {
+            _Logger.Warning('You will time out in ' + countdown + ' seconds!');
+            this.onTimeoutWarning.emit(countdown);
+        });
+
     }
 
     ngOnInit() {
@@ -54,20 +85,37 @@ export class SessionExpireService implements OnInit, OnDestroy {
 
     start(): void {
         this._Logger.debug('Session valid for: ' + AppConstant.Session_Time);
-        this.setSessionTime(AppConstant.Session_Time);
-        this.setTimeout(AppConstant.Session_Expire_Warning);
+        /**
+         this.setSessionTime(AppConstant.Session_Time);
+         this.setTimeout(AppConstant.Session_Expire_Warning);
+         this.state.IsActive = true;
+         this.onSessionStart.emit(null);
+
+         this.watch();
+         */
+
+        // Ng-Idle
+        // sets an idle timeout of 5 seconds, for testing purposes.
+        this.idle.setIdle(AppConstant.Session_Time);
+        // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
+        this.idle.setTimeout(AppConstant.Session_Expire_Warning);
+        // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
+        this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
         this.state.IsActive = true;
         this.onSessionStart.emit(null);
-
-        this.watch();
+        this.idle.watch();
     }
 
     stop(): void {
         this._Logger.debug('remove Session time');
         this.state.IsActive = false;
+        this.idle.stop();
+
+        /**
         this.state.Countdown = 0;
         this.safeClearInterval(this.timeoutHandle);
         this.safeClearInterval(this.timeoutHandler);
+         */
     }
 
     /** Private Methods */
@@ -128,14 +176,12 @@ export class SessionExpireService implements OnInit, OnDestroy {
         if (handleName) {
             clearInterval(handleName);
         }
-        // if (this[handleName]) {
-        //     clearInterval(this[handleName]);
-        //     this[handleName] = null;
-        // }
     }
 
     ngOnDestroy() {
-        // this.onSessionStart.closed;
+        this.idleEndsubscribtion.unsubscribe();
+        this.idleStartsubscribtion.unsubscribe();
+        this.warningsubscribtion.unsubscribe();
+        this.timeoutsubscribtion.timeoutsubscribtion();
     }
-
 }
