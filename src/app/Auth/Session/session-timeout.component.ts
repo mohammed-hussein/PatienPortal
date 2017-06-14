@@ -41,12 +41,10 @@ export class SessionTimeoutComponent implements OnInit, OnDestroy {
     }
 
     sessionStartHandler() {
-        debugger;
         this._Logger.debug('Session started..');
         this.sessionActive = true;
     }
     sessionExpiredHandler() {
-        debugger;
         this.isExpired = true;
         this.sessionActive = false;
         this._AuthService.logout().then(() => this._Logger.debug('Log out'));

@@ -13,7 +13,7 @@ import {
     MedicationsComponent, MedicationsContainerComponent, MedicationsListComponent, MedicationsDetailsComponent,
     RadiologiesComponent, RadiologiesContainerComponent, RadiologiesListComponent, RadiologiesDetailsComponent,
     LabContainerComponent, LapProceduresListComponent, LabProcedureDetailsComponent,
-    NoRecordsComponent, AppointementsSatisfactionComponent
+    NoRecordsComponent, AppointementsSatisfactionComponent, AppointmentsSatisfactionPublicComponent
 } from './index';
 import { LabStatusPipe } from './Lab/lab-status.pipe';
 import { MedicalFunctionRoutingModule } from './medical-function.routing';
@@ -32,7 +32,7 @@ import { MedicalFunctionRoutingModule } from './medical-function.routing';
         DiagnosisComponent, DiagnosisContainerComponent, DiagnosisListComponent, DiagnosisDetailsComponent,
         RadiologiesComponent, RadiologiesContainerComponent, RadiologiesListComponent, RadiologiesDetailsComponent,
         LabContainerComponent, LapProceduresListComponent, LabProcedureDetailsComponent,
-        LabStatusPipe, NoRecordsComponent, AppointementsSatisfactionComponent],
+        LabStatusPipe, NoRecordsComponent, AppointementsSatisfactionComponent, AppointmentsSatisfactionPublicComponent],
 })
 
 export class MedicalFunctionModule { }

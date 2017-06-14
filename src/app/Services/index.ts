@@ -21,3 +21,4 @@ export * from './Reports/reports.service';
 export * from './Reports/report.model';
 export * from './Reports/radiology-report.model';
 
+export * from './Public/public.services';

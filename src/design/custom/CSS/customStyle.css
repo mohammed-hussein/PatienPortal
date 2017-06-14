@@ -124,10 +124,10 @@ span.navText {
 }
 
 /*add these 2 new class to maintain the page content margins when navigation open and close */
-.sidenav-margin-open {margin-left:164px !important; margin-top:63px; padding-top:30px;} /*En*/
+.sidenav-margin-open {margin-left:179px !important; margin-top:63px; padding-top:30px;} /*En*/
 .sidenav-margin-close {margin-left:60px !important; margin-top:63px; padding-top:30px;} /*En*/
 
-.expand   {  width: 160px;}
+.expand   {  width: 175px;}
 .collapse {  width: 56px;}
 
 ::-webkit-scrollbar

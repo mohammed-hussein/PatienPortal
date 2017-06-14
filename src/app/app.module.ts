@@ -33,7 +33,7 @@ import { LoggerService, CustomErrorHandler, LoadingService } from './SharedServi
 // import { SessionExpireService } from './SharedServices/Session/session-expire.service';
 // import {  SessionHandlerService  } from './SharedServices/Session/sessionhandler.service';
 
-import { SessionExpireService, ProfileService, MedicalFunctionsService, ReportsService } from './Services/index';
+import { SessionExpireService, ProfileService, MedicalFunctionsService, ReportsService, PublicService } from './Services/index';
 import { SessionHandlerService } from './Services/Shared/sessionhandler.service';
 
 import { SharedComponentModule } from './SharedComponents/shared-components.module';
@@ -79,6 +79,7 @@ export function HttpLoaderFactory(http: Http) {
     LoggerService,
     SessionHandlerService,
     LoadingService,
+    PublicService,
     // ExpireSessionService,
     // SessionExpireService,
     // {provide: ErrorHandler, useClass: CustomErrorHandler},

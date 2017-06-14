@@ -1,18 +1,127 @@
 <div id="id_appointSatis" class="w3-modal" [ngClass]="{'w3-show': show}">
-<div class="w3-modal-content w3-animate-zoom w3-round-large w3-padding-large w3-card-4 w3-white">
-    <div class="w3-container  w3-border-bottom w3-text-gray ">
-        <span (click)="onClose()" class="w3-right w3-xlarge w3-closebtn w3-padding-top"><i class="fa fa-remove"></i></span>
-        <div class="w3-left w3-cyan w3-round-large w3-margin-top w3-margin-right w3-text-white"><i class="fa fa-star-o w3-xlarge w3-padding-small"></i></div>
-        <h2>{{'APPOINTMENTS.LABELS.SurveyTitle' | translate}}</h2>
+    <div class="w3-modal-content w3-animate-zoom w3-round-large w3-padding-large w3-card-4 w3-white" [ngClass]="{'w3-hide': isLoading}">
+        <div class="w3-container  w3-border-bottom w3-text-gray ">
+            <span (click)="onClose()" class="w3-right w3-xlarge w3-closebtn w3-padding-top"><i class="fa fa-remove"></i></span>
+            <div class="w3-left w3-cyan w3-round-large w3-margin-top w3-margin-right w3-text-white"><i class="fa fa-star-o w3-xlarge w3-padding-small"></i></div>
+            <h2>{{'APPOINTMENTS.LABELS.SurveyTitle' | translate}}</h2>
+        </div>
+        <div class="w3-panel" [ngClass]="{'w3-hide': !isReviewed}">
+            <div [ngClass]="{'w3-hide': isSaved}">
+                <p class="w3-text-orange w3-large"><b>{{'APPOINTMENTS.LABELS.Review_msg' | translate}}</b></p>
+            </div>
+        </div>
+        <div class="w3-panel" [ngClass]="{'w3-hide': !isSaved}">
+            <p class="w3-text-orange w3-large"><b>{{'APPOINTMENTS.COLUMNS.ReviewMsg' | translate:{resultEnglishMSG:resultEnglishMSG, resultArabicMSG:resultArabicMSG} }}</b></p>
+        </div>
+        <div class="w3-panel" [ngClass]="{'w3-hide': isReviewed}">
+            <p class="w3-text-orange w3-large"><b>{{'APPOINTMENTS.COLUMNS.Patient_Name' | translate:{PatientEnglishName:English_Name, PatientArabicName:Arabic_Name } }}</b></p>
+            <p class="w3-text-gray">{{'APPOINTMENTS.LABELS.SurveyDesc' | translate}}</p>
+            <div class="w3-clear ">
+                <div class="w3-left w3-padding-tiny w3-cyan">
+                    <p><br /><br /></p>
+                </div>
+                <div class="w3-left w3-padding-left">
+                    <p class="w3-text-cyan"><span>{{'APPOINTMENTS.LABELS.Appoint_Date' | translate}}</span><span> {{appointment?.APPODATE}}</span></p>
+                    <p class="w3-text-cyan"><span>{{'APPOINTMENTS.LABELS.Doctor_Name' | translate}}</span><span>{{'APPOINTMENTS.COLUMNS.RESOURCE' | translate:{RESOURCE_EN:appointment?.RESOURCE, RESOURCE_AR:appointment?.RESOURCE_AR} }}</span>
+                        </p>
+                </div>
+            </div>
+            <div class="w3-clear ">
+                <div>
+                    <p>{{'APPOINTMENTS.LABELS.Review_DocIntro' | translate}}</p>
+                    <span class="image-radio">
+                        <input #elemQ11 name="Q1" style="display:none" type="radio" value="1" [(ngModel)]="appointSurvey.Answer1"/>
+                        <i class="flaticon3-satisfied w3-text-light-green w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer1 = '1'"></i>
+                    </span>
+                    <span class="image-radio">
+                        <input #elemQ13 name="Q1" style="display:none" type="radio" value="2" [(ngModel)]="appointSurvey.Answer1"/>
+                        <i class="flaticon3-neutral w3-text-amber w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer1 = '2'"></i>
+                    </span>
+                    <span class="image-radio">
+                        <input #elemQ14 name="Q1" style="display:none" type="radio" value="3" [(ngModel)]="appointSurvey.Answer1"/>
+                        <i class="flaticon3-sad w3-text-red w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer1 = '3'"></i>
+                    </span>
+                </div>
+                <div>
+                    <p>{{'APPOINTMENTS.LABELS.Review_DocExp' | translate}}</p>
+                    <span class="image-radio">
+                        <input #elemQ21 name="Q2" style="display:none" type="radio" value="1" id="Radio3" [(ngModel)]="appointSurvey.Answer2"/>
+                        <i class="flaticon3-satisfied w3-text-light-green w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer2 = '1'"></i>
+                    </span>
+                    <span class="image-radio">
+                        <input #elemQ23 name="Q2" style="display:none" type="radio" value="2" [(ngModel)]="appointSurvey.Answer2"/>
+                        <i class="flaticon3-neutral w3-text-amber w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer2 = '2'"></i>
+                    </span>
+                    <span class="image-radio">
+                        <input #elemQ24 name="Q2" style="display:none" type="radio" value="3" [(ngModel)]="appointSurvey.Answer2"/>
+                        <i class="flaticon3-sad w3-text-red w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer2 = '3'"></i>
+                    </span>
+                </div>
+                <div>
+                    <p>{{'APPOINTMENTS.LABELS.Review_DocListen' | translate}}</p>
+                    <span class="image-radio">
+                        <input  #elemQ31 name="Q3" style="display:none" type="radio" value="1" id="Radio1" [(ngModel)]="appointSurvey.Answer3"/>
+                        <i class="flaticon3-satisfied w3-text-light-green w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer3 = '1'"></i>
+                    </span>
+                    <span class="image-radio">
+                        <input #elemQ33 name="Q3" style="display:none" type="radio" value="2" [(ngModel)]="appointSurvey.Answer3"/>
+                        <i class="flaticon3-neutral w3-text-amber w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer3 = '2'"></i>
+                    </span>
+                    <span class="image-radio">
+                        <input #elemQ34 name="Q3" style="display:none" type="radio" value="3" [(ngModel)]="appointSurvey.Answer3"/>
+                        <i class="flaticon3-sad w3-text-red w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer3 = '3'"></i>
+                    </span>
+                </div>
+            <div>
+                <p>{{'APPOINTMENTS.LABELS.Review_DocAnswer' | translate}}</p>
+                <span class="image-radio">
+                    <input #elemQ41 name="Q4" style="display:none" type="radio" value="1" id="Q1A1" [(ngModel)]="appointSurvey.Answer4"/>
+                    <i class="flaticon3-satisfied w3-text-light-green w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer4 = '1'"></i>
+                </span>
+                <span class="image-radio">
+                    <input #elemQ43 name="Q4" style="display:none" type="radio" value="2" [(ngModel)]="appointSurvey.Answer4"/>
+                    <i class="flaticon3-neutral w3-text-amber w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer4 = '2'"></i>
+                </span>
+                <span class="image-radio">
+                    <input #elemQ44 name="Q4" style="display:none" type="radio" value="3" [(ngModel)]="appointSurvey.Answer4"/>
+                    <i class="flaticon3-sad w3-text-red w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer4 = '3'"></i>
+                </span>
+            </div>
+            <div>
+                <p>{{'APPOINTMENTS.LABELS.Review_DocResp' | translate}}</p>
+                <span class="image-radio">
+                    <input #elemQ51 name="Q5" style="display:none" type="radio" value="1" id="Radio4" [(ngModel)]="appointSurvey.Answer5"/>
+                    <i class="flaticon3-satisfied w3-text-light-green w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer5 = '1'"></i>
+                </span>
+                <span class="image-radio">
+                    <input #elemQ53 name="Q5" style="display:none" type="radio" value="2" [(ngModel)]="appointSurvey.Answer5"/>
+                    <i class="flaticon3-neutral w3-text-amber w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer5 = '2'"></i>
+                </span>
+                <span class="image-radio">
+                    <input #elemQ54 name="Q5" style="display:none" type="radio" value="3" [(ngModel)]="appointSurvey.Answer5"/>
+                    <i class="flaticon3-sad w3-text-red w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer5 = '3'"></i>
+                </span>
+            </div>
+            <div>
+                <p>{{'APPOINTMENTS.LABELS.Review_DocInvol' | translate}}</p>
+                <span class="image-radio">
+                    <input #elemQ61 name="Q6" style="display:none" type="radio" value="1" [(ngModel)]="appointSurvey.Answer6"/>
+                    <i class="flaticon3-satisfied w3-text-light-green w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer6 = '1'"></i>
+                </span>
+                <span class="image-radio">
+                    <input #elemQ63 name="Q6" style="display:none" type="radio" value="2" [(ngModel)]="appointSurvey.Answer6"/>
+                    <i class="flaticon3-neutral w3-text-amber w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer6 = '2'"></i>
+                </span>
+                <span class="image-radio">
+                    <input #elemQ64 name="Q6" style="display:none" type="radio" value="3" [(ngModel)]="appointSurvey.Answer6"/>
+                    <i class="flaticon3-sad w3-text-red w3-xxlarge w3-padding-small" (click)="appointSurvey.Answer6 = '3'"></i>
+                </span>
+            </div>
+            </div>
+            <div class="w3-section">
+                <a class="w3-btn w3-right w3-red w3-text-white w3-margin-left" (click)="onClose()"> {{'COMMON.LABELS.Cancel' | translate}} <i class="fa fa-times"></i></a>
+                <a class="w3-btn w3-right w3-cyan w3-text-white w3-margin-left" (click)="onSave()"> {{'COMMON.LABELS.Send' | translate}}  <i class="fa fa-paper-plane"></i></a>
+            </div>
+        </div>
     </div>
-    <div class="w3-panel">
-        Questions 1
-        <br/> Questions 2
-        <br/> Questions 3
-        <br/> Questions 4
-        <br/> Questions 5
-        <br/> Questions 6
-        <br/>
-    </div>
-</div>
 </div>

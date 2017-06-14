@@ -80,7 +80,7 @@
       "Rid_Reports":        "Reports",
       "Reports":            "Reports",
       "Sick_Leave":         "Sick leave",
-      "Watcher_Leave":      "Watcher leave",
+      "Watcher_Leave":      "Companion \/ Watcher Notification ",
       "Discharge_Summery":  "Discharge Summary",
       "Medical_Report":     "Medical Report",
       "TellUs":             "Tell Us",
@@ -111,6 +111,7 @@
   "APPOINTMENTS": {
     "LABELS":{
       "Title":              "Appointments",
+      "PerviousTitle":      "Pervious Appointments",
       "Item":               "",
       "Date":               "Date",
       "Clinic":             "Clinic",
@@ -121,14 +122,26 @@
       "Building":           "Building",
       "Floor":              "Floor",
       "NOTES":              "Notes",
-      "Survey":             "Respont Survey",
-      "SurveyTitle":        "Satisfaction Survey"
+      "Survey":             "Happy ?",
+      "SurveyTitle":        "Your Satisfaction",
+      "SurveyDesc":         "Are you happy with the service provided by the doctor in your visit ? Let us know by answering this survey !",
+      "Appoint_Date":       "Appointment Date:",
+      "Doctor_Name":        "Doctor Name:",
+      "Review_msg":         "Thank You, You have already review this appointment",
+      "Review_DocIntro":    "The Doctor Introduced him/herself and welcomed me",
+      "Review_DocExp":      "The Doctor explained my health situation clearly",
+      "Review_DocListen":   "The Doctor listened carefully to me and maintained eye contact",
+      "Review_DocAnswer":   "The Doctor answered my questions clearly",
+      "Review_DocResp":     "The Doctor answered respect my opinion",
+      "Review_DocInvol":    "The Doctor Involved me in decision making and treatment plan"
     },
     "COLUMNS":{
       "STATUS":             "{{STATUS_EN}}",
       "CLINIC":             "{{CLINIC_EN}}",
       "APP_TYPE":           "{{APP_TYPE_EN}}",
-      "RESOURCE":           "{{RESOURCE_EN}}"
+      "RESOURCE":           "{{RESOURCE_EN}}",
+      "Patient_Name":       "{{PatientEnglishName}}",
+      "ReviewMsg":          "{{resultEnglishMSG}}"
     }
   },
   "Diagnosis": {
@@ -256,7 +269,7 @@
       "Title":              "{{reportHeader}}",
       "Report_Sick":        "Sick Leave",
       "Report_Discharge":   "Discharge Summery",
-      "Report_Watcher":     "Watcher Leave",
+      "Report_Watcher":     "Companion \/ Watcher Notification ",
       "Footer":             "(This document is an auto generated overview of the condition)"
       },
     "COLUMNS":{

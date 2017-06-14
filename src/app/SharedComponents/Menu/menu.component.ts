@@ -71,6 +71,7 @@ export class MenuComponent implements OnInit, OnDestroy {
         } else {
             x.className = x.className.replace(' w3-show', '');
             $('.navText').hide();
+            $('#Appo').removeClass('w3-show');
             $('#med').removeClass('w3-show');
             $('#Radio').removeClass('w3-show');
             $('#Report').removeClass('w3-show');

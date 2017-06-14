@@ -22,11 +22,11 @@ export class AppConstant {
     public static Activaion_Code_ExpireTime: number = 5 * 60 ; // in seconds
     public static Activation_TimeOut: boolean = true;
     // App Session Constant
-    public static Session_Time: number = 10 ; // in seconds
-    public static Session_Expire_Warning: number = 5 ; // in seconds
-    public static SESSION_DELAY_TIME: number = 60 ; // in seconds
+    public static Session_Time = 120 ; // in seconds
+    public static Session_Expire_Warning = 5 ; // in seconds
+    public static SESSION_DELAY_TIME = 60 ; // in seconds
 
     // Environment Variables
 
-    public static PROD_MODE: boolean = false;
+    public static PROD_MODE = false;
 }

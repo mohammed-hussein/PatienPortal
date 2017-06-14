@@ -111,6 +111,7 @@
   "APPOINTMENTS": {
     "LABELS":{
       "Title":              "المواعيد",
+      "PerviousTitle":      "المواعيد السابقة",
       "Item":               "",
       "Date":               "التاريخ",
       "Clinic":             "العيادة",
@@ -121,14 +122,26 @@
       "Building":           "المبنى",
       "Floor":              "الطابق",
       "NOTES":              "ملاحظات",
-      "Survey":             "أستجابةللستطلاع",
-      "SurveyTitle":        "رأيك يهمنا"
+      "Survey":             "أستجابة للستطلاع",
+      "SurveyTitle":        "إرضائك",
+      "SurveyDesc":        "هل أنت راض عن الخدمة التي يقدمها الطبيب في زيارتك؟ اسمحوا لنا أن نعرف من خلال الإجابة على هذا الاستطلاع!",
+      "Appoint_Date":       "التاريخ",
+      "Doctor_Name":        "الطبيب",
+      "Review_msg":         "!شكرًا ، لقد تم استلام تقييمك مسبقًا",
+      "Review_DocIntro":    "الطبيب قدم نفسه ورحب بى",
+      "Review_DocExp":      "أوضح الطبيب الوضع الصحي بوضوح",
+      "Review_DocListen":   "استمع الطبيب بعناية لي والحفاظ على اتصال العين",
+      "Review_DocAnswer":   "أجاب الطبيب على أسئلتي بوضوح",
+      "Review_DocResp":     "أجاب الطبيب باحترام رأيي",
+      "Review_DocInvol":    "الطبيب شاركني في صنع القرار وخطة العلاج"
     },
     "COLUMNS":{
       "STATUS":             "{{STATUS_AR}}",
       "CLINIC":             "{{CLINIC_AR}}",
       "APP_TYPE":           "{{APP_TYPE_AR}}",
-      "RESOURCE":           "{{RESOURCE_AR}}"
+      "RESOURCE":           "{{RESOURCE_AR}}",
+      "Patient_Name":       "{{PatientArabicName}}",
+      "ReviewMsg":          "{{resultArabicMSG}}"
     }
   },
   "Diagnosis": {

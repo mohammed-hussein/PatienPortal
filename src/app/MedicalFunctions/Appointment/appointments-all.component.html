@@ -1,5 +1,6 @@
 <div class="w3-container w3-text-blue w3-padding w3-round-large w3-card-4 content-boxes">
-    <div class="w3-left w3-margin w3-large"><span><b>{{'APPOINTMENTS.LABELS.Title' | translate}}</b></span></div>
+    <div class="w3-left w3-margin w3-large" [ngClass]="{'w3-hide': isPervious}"><span><b>{{'APPOINTMENTS.LABELS.Title' | translate}}</b></span></div>
+    <div class="w3-left w3-margin w3-large" [ngClass]="{'w3-hide': !isPervious}"><span><b>{{'APPOINTMENTS.LABELS.PerviousTitle' | translate}}</b></span></div>
     <!--<div class="w3-xlarge w3-right w3-margin w3-text-orange"><a><i class="fa fa-plus-circle"></i></a></div>-->
 
     <!-- Add new item Button
